@@ -1,0 +1,148 @@
+{
+	"name":"Salsero",
+	"thumbnail":"salsero.png",
+	"screenshot":"salsero.png",
+	"templateType":"standard",
+    "pageTypes":["home"],
+    "tags": {
+    "en": ["colorful", "bright", "clean", "vintage", "business", "colourful", "classic", "pattern", "texture", "background", "fashion", "retail", "travel", "serif"],
+    "es": ["colorido", "claro", "limpio", "vintage", "negocio", "clasico", "patron", "textura", "fondo", "moda", "minorista"],
+    "br": ["colorido", "claro", "limpio", "vintage", "negócios", "clássico", "padrão", "textura", "fundo", "moda", "varejo"]
+    },
+	"colorSwatches":
+    {
+        "Swatch 1": {
+            "color1":"#ffffff",
+            "color2":"#f28627",
+            "color3":"#f8efe2",
+            "color4":"#071920",
+            "color5":"#455257",
+            "color6":"#a62010",
+            "color7":"#feb934"
+        },
+        "Swatch 2": {
+            "color1":"#ffffff",
+            "color2":"#0099ff",
+            "color3":"#edeff2",
+            "color4":"#225272",
+            "color5":"#7f8792",
+            "color6":"#006cb4",
+            "color7":"#34b8ff"
+        },
+        "Swatch 3": {
+            "color1":"#ffffff",
+            "color2":"#ff9013",
+            "color3":"#f9f3e5",
+            "color4":"#b43535",
+            "color5":"#766c6c",
+            "color6":"#e74c4c",
+            "color7":"#fcaf3b"
+        },
+        "Swatch 4": {
+            "color1":"#ffffff",
+            "color2":"#aeaeae",
+            "color3":"#eeeeee",
+            "color4":"#237f8b",
+            "color5":"#7f7f7f",
+            "color6":"#37b5c5",
+            "color7":"#bec8c9"
+        },
+        "Swatch 5": {
+            "color1":"#ffffff",
+            "color2":"#ff8511",
+            "color3":"#eeeeee",
+            "color4":"#2f4b4d",
+            "color5":"#999999",
+            "color6":"#17787f",
+            "color7":"#ff9200"
+        }
+    },
+    "fontSwatch": {
+       "title": "Merriweather",
+        "font1": {
+            "font-family": "\"Merriweather\", Georgia, serif",
+            "font-size": "40px",
+            "font-weight": "400",
+            "line-height": "48px",
+            "color": "@color-swatch4",
+            "letter-spacing": "inherit"
+        },
+        "font2": {
+            "font-family": "\"Merriweather\", Georgia, serif",
+            "font-size": "30px",
+            "font-weight": "inherit",
+            "line-height": "36px",
+            "color": "@color-swatch4",
+            "letter-spacing": "inherit"
+        },
+        "font3": {
+            "font-family": "\"Merriweather\", Georgia, serif",
+            "font-size": "24px",
+            "font-weight": "inherit",
+            "line-height": "30px",
+            "color": "@color-swatch4",
+            "letter-spacing": "inherit"
+        },
+        "font4": {
+            "font-family": "\"Merriweather\", Georgia, serif",
+            "font-size": "20px",
+            "font-weight": "inherit",
+            "line-height": "26px",
+            "color": "@color-swatch4",
+            "letter-spacing": "inherit"
+        },
+        "font5": {
+            "font-family": "\"Merriweather Sans\", \"Lato\", Helvetica, sans-serif",
+            "font-size": "13px",
+            "font-weight": "300",
+            "line-height": "20px",
+            "color": "@color-swatch5",
+            "letter-spacing": "inherit"
+        },
+        "font6": {
+            "font-family": "\"Merriweather Sans\", \"Lato\", Helvetica, sans-serif",
+            "font-size": "12px",
+            "font-weight": "700",
+            "line-height": "23px",
+            "color": "@color-swatch6",
+            "color-hover": "darken(@color-swatch6,10%)",
+            "letter-spacing": "inherit",
+            "background-color": "@color-swatch1",
+            "background-color-hover": "@color-swatch1"
+        },
+        "font7": {
+            "font-family": "\"Merriweather Sans\", \"Lato\", Helvetica, sans-serif",
+            "font-size": "14px",
+            "font-weight": "300",
+            "line-height": "22px",
+            "color": "@color-swatch1",
+            "letter-spacing": "inherit",
+            "background-color": "@color-swatch6",
+            "background-color-hover": "darken(@color-swatch6,5%)"
+        },
+        "font8": {
+            "font-family": "\"Merriweather\", Georgia, serif",
+            "font-size": "48px",
+            "font-weight": "300",
+            "line-height": "54px",
+            "color": "@color-swatch1",
+            "letter-spacing": "inherit"
+        },
+        "font9": {
+            "font-family": "\"Merriweather Sans\", \"Lato\", Helvetica, sans-serif",
+            "font-size": "16px",
+            "font-weight": "300",
+            "line-height": "26px",
+            "color": "@color-swatch1",
+            "letter-spacing": "inherit"
+        },
+        "font10": {
+            "font-family": "\"Merriweather\", Georgia, serif",
+            "font-size": "20px",
+            "font-weight": "400",
+            "line-height": "30px",
+            "color": "@color-swatch6",
+            "letter-spacing": "inherit"
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<div class="bk-pt-home">
+     <header class="bk-header wrapper clearfix">
+        <div class="companyheader clearfix">
+            {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+            {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
+         </div>
+         {{widget('extendednavigation', 'navigationheader', {"align":"right"})|raw}}
+    </header>
+
+    <section class="bk-section wrapper">
+        <div class="feature-columns">
+            <div class="responsivecolumns columns-two-66-34">
+                <div class="column columns-two-left">
+          {{widget('feature', 'featurehome', {"header": "profile", "strapline":"profile", "buttonText":"Lorem Ipsum","defaultBgImg": asset('images/feature-bg.jpg'), 'positionTopPercentage': '50','showBtn': true})|raw}}
+                </div>
+                <div class="column columns-two-right">
+                    <div class="yellow">
+                        {{widget('content', 'textwidgetbox1', {content: '<p>Lorem ipsum dolor sit amet.</p>', lines: 'all'})|raw}}
+                    </div>
+                    <div class="blue">
+                        {{widget('content', 'textwidgetbox2', {content: '<p>Lorem ipsum dolor sit amet.</p>', lines: 'all'})|raw}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main wrapper clearfix">
+        {{zone('main')|raw}}
+    </div>  
+
+    <footer class="bk-footer wrapper">
+        <div class="responsivecolumns columns-two-50-50">
+            <div class="column columns-two-left">
+                {{widget('profile', 'footercolumn1profilecopyright', { 'profileType':'copyright', 'copyright':'profile'})|raw}}
+            </div>
+            <div class="column columns-two-right">           
+                {{widget('profile', 'footercolumn1socialicons', { 'profileType' : 'socialicons' })|raw}}
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+{% endblock %}

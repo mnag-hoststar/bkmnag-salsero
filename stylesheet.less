@@ -1,0 +1,2876 @@
+/* ===============================
+   IMPORT CSS
+   =============================== */
+
+@import "@{templateCommon}/basekit-bootstrap.less";
+
+/* ===============================
+   TEMPLATE CSS
+   =============================== */
+
+   body {
+    background-color: @color-swatch3;
+    margin: 0;
+    padding: 0;
+    text-rendering: optimizeLegibility;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+a {
+    font-family: @font-swatch5-font-family;
+    font-size: @font-swatch5-font-size;
+    font-weight: @font-swatch5-font-weight;
+    color: @font-swatch4-color;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0 0 10px;
+}
+
+blockquote {
+    margin: 30px 0;
+    quotes: "\201C""\201D""\2018""\2019";
+    font-family:@font-swatch4-font-family;
+    font-size: bkscale(@font-swatch4-font-size,0.75);
+    font-weight:@font-swatch4-font-weight;
+    line-height: bkscale(@font-swatch4-line-height,0.9);
+    color: lighten(@color-swatch4,20%);
+    padding: 18px;
+    margin-left: 30px;
+}
+
+blockquote:before {
+    font-family: georgia;
+    color: @color-swatch2;
+    content: open-quote;
+    font-size: 2.5em;
+    line-height: .1em;
+    margin-right: .1em;
+    vertical-align: -.4em;
+    margin-left: -10px;
+}
+
+/* blockquote p {
+    display: inline;
+    font-family:@font-swatch5-font-family;
+    font-size:bkscale(@font-swatch5-font-size,1.1);
+    font-weight:@font-swatch5-font-weight;
+    line-height:@font-swatch5-line-height;
+    color: lighten(@color-swatch5,20%);
+} */
+
+/* ===============================
+   CUSTOM CSS
+   =============================== */
+
+.main {
+  padding: 20px 0;
+}
+
+body.edit .widget.navigation, body.edit .widget.extendednavigation {
+    overflow: visible;
+}
+
+/* DEFAULT PAGE TYPE */
+
+.bk-pt-default header.bk-header {
+  padding: 0;
+  padding: 20px;
+}
+
+.bk-pt-default .inner-bg {
+  border-top: none;
+}
+
+.widget .extendednavigation ul li:hover ul {
+  background-color: @color-swatch3;
+  margin-top:10px;
+}
+
+.bk-pt-home {
+  .columns-two-right {
+    .blue .widget.content {
+      background-color: @color-swatch6;
+      border-bottom: 5px solid @color-swatch7;
+      p {
+       color: @color-swatch1;
+       font-size:@font-swatch7-font-size;
+       font-weight:@font-swatch7-font-weight;
+       padding: 0 30px;
+      }
+    }
+    .yellow .widget.content {
+      background-color: @color-swatch7;
+      p {
+        color: @color-swatch1;
+        font-size:@font-swatch7-font-size;
+        font-weight:@font-swatch7-font-weight;
+        padding: 0 30px;
+      }
+    }
+    .widget.content {
+      color: @color-swatch1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 217px;
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+/* ===============================
+   HEADER
+   =============================== */
+
+header.bk-header {
+    background-color: @color-swatch1;
+    border-top: 5px solid @color-swatch2;
+    padding: 20px;
+    width: 100%;
+}
+
+.companyheader {
+    display: inline-block;
+    padding: 0;
+    float: left;
+    vertical-align: middle;
+    width: 40%;
+}
+
+/* COMPANY NAME */
+
+.widget.companyname {
+    display: block;
+    margin-left: 5px;
+    //width: 50%;
+    a {
+        @media @mobile {
+            font-size: bkscale(@font-swatch10-font-size, 0.9);
+            line-height: bkscale(@font-swatch10-line-height, 0.8);
+        }
+    }
+}
+
+.companyname a:hover {
+  text-decoration: none;
+}
+
+/* LOGO */
+
+.widget.logo {
+  display: block;
+  margin-right: 2px;
+}
+
+.widget {
+    &.logo, &.companyname {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 10px;
+    }
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+
+footer.bk-footer {
+    padding: 25px 0px 20px 0px;
+    margin-top: 3em;
+    text-align: center;
+    margin:0 auto;
+    border-top:1px solid lighten(@color-swatch5, 20%);
+    background-color:transparent;
+}
+
+footer.bk-footer h1,
+footer.bk-footer h2,
+footer.bk-footer h3,
+footer.bk-footer h4 {
+    color: @color-swatch1;
+    padding-bottom: 20px;
+}
+
+/* ===============================
+   STANDARD NAVIGATION
+   =============================== */
+
+.widget.navigation {
+}
+
+.widget.navigation ul {
+  padding: 0;
+  margin: 0;
+}
+
+.widget.navigation ul.align-center li
+{
+  text-align: center;
+}
+
+.widget.navigation ul.align-left li
+{
+  text-align: left;
+}
+
+.widget.navigation ul.align-right li
+{
+  text-align: right;
+}
+
+.widget.navigation ul li {
+  float: left;
+  display: block;
+  padding-right: 30px;
+}
+
+.widget.navigation ul li a:hover {
+  text-decoration: none;
+  color: @font-swatch6-color-hover;
+}
+
+/* ===============================
+   EXTENDED NAVIGATION
+   =============================== */
+
+.widget.extendednavigation {
+  float: right;
+  position: relative;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  width: 60%;
+}
+
+.widget.extendednavigation a.pull {
+  display: none;
+}
+
+.widget.extendednavigation ul {
+  padding: 0;
+  margin: 0;
+}
+
+.widget.extendednavigation ul.align-center li
+{
+  text-align: center;
+}
+
+.widget.extendednavigation ul.align-left li
+{
+  text-align: left;
+}
+
+.widget.extendednavigation ul.align-right li
+{
+  text-align: right;
+}
+
+.widget .extendednavigation ul li.folder .text:after {
+  display:none;
+}
+
+.widget.extendednavigation ul li {
+  float: left;
+  display: block;
+  padding:0;
+}
+
+.widget.extendednavigation ul li.folder {
+  display:inline-block;
+  height: 100%;
+  cursor: pointer;
+  background-position: right center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  &:after {
+    right: 10px;
+    top: 42%;
+  }
+}
+
+.widget.extendednavigation ul li.folder:hover {
+  color: @font-swatch6-color;
+}
+
+
+.widget.extendednavigation ul li a, .widget.extendednavigation ul li.folder .text {
+  display: block;
+  padding: 10px 17px;
+  font-family:@font-swatch6-font-family;
+  font-size:@font-swatch6-font-size;
+  font-weight: @font-swatch6-font-weight;
+  color: @font-swatch6-color;
+  line-height:@font-swatch6-line-height;
+  letter-spacing: @font-swatch6-letter-spacing;
+  text-transform: uppercase;
+}
+
+.widget.extendednavigation ul li.folder .text:hover {
+  border-bottom:none;
+  border:0;
+  color: @font-swatch6-color;
+}
+
+.widget.extendednavigation ul li.folder:after {
+  right:0;
+}
+
+.widget.extendednavigation ul li a:hover {
+  text-decoration: none;
+  border-bottom:3px solid @color-swatch7;
+  margin-bottom:-10px;
+  padding-bottom:6px;
+}
+
+.widget.extendednavigation li > ul {
+  display: none;
+  background-color: @color-swatch3;
+}
+
+.widget.extendednavigation li:hover > ul {
+  display: block;
+  position: absolute;
+  z-index: 500;
+  margin-top: 10px;
+  margin-left:10px;
+  right: 0;
+}
+
+.widget.extendednavigation li:hover > ul > li {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.widget.extendednavigation li:hover > ul > li:hover {
+  background-color: darken(@color-swatch3,10%);
+  border-bottom: none;
+}
+
+.widget.extendednavigation li:hover > ul > li:last-child {
+  border-bottom: none;
+}
+
+.widget.extendednavigation li:hover > ul > li > a {
+  display: block;
+  background-image: none;
+  color: @font-swatch6-color;
+  margin-left: 0;
+  padding:0;
+}
+
+.widget.extendednavigation li:hover > ul > li > a:hover {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.widget.extendednavigation li:hover > ul > li > a .text {
+  margin-left: 0;
+}
+
+.widget .extendednavigation ul li.folder ul li a .text {
+  padding:0px 20px;
+}
+
+.extendednavigation li.selected {
+    a {
+        text-decoration: none;
+        border-bottom: 3px solid @color-swatch7;
+        margin-bottom: -10px;
+        padding-bottom: 6px!important;    }
+}
+
+.widget .extendednavigation ul li:hover ul {
+  margin-top:0;
+}
+
+/* EXTENDED NAVIGATION - INSIDE ZONE */
+
+.main .widget.extendednavigation {
+    max-width: 100%;
+    width: 100%;
+    float: none;
+}
+
+.main .widget.extendednavigation ul {
+  margin: 0;
+}
+
+.main .widget.extendednavigation ul li a, .main .widget.extendednavigation ul li.folder .text {
+  margin-left: 0;
+}
+
+.main .widget.extendednavigation:before,
+.main .widget.extendednavigation:after {
+  content: " ";
+  display: table;
+}
+.main .widget.extendednavigation:after {
+  clear: both;
+}
+.main .widget.extendednavigation {
+  *zoom: 1;
+}
+
+
+/* ===============================
+   FEATURE
+   =============================== */
+
+.widget.feature {
+  width: 100%;
+  margin: 0;
+  border-bottom: 5px solid @color-swatch7;
+}
+
+.widget.feature .wrapper {
+  width: 100%;
+}
+
+.widget.feature .feature-bgimg {
+  width: 100%;
+  height: 450px;
+  display: inherit;
+}
+
+.widget.feature .feature-bgimg .content {
+  height: 450px;
+}
+
+ .widget.feature .content {
+  text-align: center;
+  height: 450px;
+}
+
+.widget.feature .content .spare {
+  margin: 0;
+  padding: 35px 0 0 0;
+}
+
+.widget.feature .feature-bgimg .content button {
+  padding: 10px 30px;
+  border: 1px solid darken(@color-swatch2, 8%);
+}
+
+/* FEATURE TITLE */
+
+.widget.feature h2 {
+  padding-bottom: 5px;
+  text-shadow: 0px 1px 1px darken(@color-swatch6, 5%);
+}
+
+
+/* FEATURE STRAPLINE */
+
+.widget.feature h3 {
+  padding: 0px 20px 0px 20px;
+  text-shadow: 0px 1px 1px darken(@color-swatch6, 5%);
+}
+
+
+/* FEATURE BUTTON */
+
+.widget.feature .feature-btn {
+  display: block;
+}
+
+.widget.feature button {
+    padding: 10px 30px;
+    margin: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    background-color: @color-swatch7;
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch2, 7%), @color-swatch2);
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch2, 7%), @color-swatch2);
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch2, 7%), @color-swatch2);
+    background-image: -o-linear-gradient(top, lighten(@color-swatch2, 7%), @color-swatch2);
+    background-image: linear-gradient(to bottom, lighten(@color-swatch2, 7%), @color-swatch2);
+    background-repeat: inherit;
+    background-size: cover;
+    background-position: inherit;
+    text-shadow: 0px 1px 0px fade(@color-swatch6, 50%);
+    color: @font-swatch7-color;
+    text-decoration: none;
+}
+
+.widget.feature .feature-btn .btnText {
+}
+
+.widget.feature button:hover {
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch2, 3%), darken(@color-swatch2, 3%));
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch2, 3%), darken(@color-swatch2, 3%));
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch2, 3%), darken(@color-swatch2, 3%));
+    background-image: -o-linear-gradient(top, lighten(@color-swatch2, 3%), darken(@color-swatch2, 3%));
+    background-image: linear-gradient(to bottom, lighten(@color-swatch2, 3%), darken(@color-swatch2, 3%));
+    cursor: pointer;
+}
+
+.widget.feature button i {
+    margin-right: 5px;
+}
+
+.feature-columns {
+    padding-top: 20px;
+}
+
+/* ===============================
+   FEATURE LAYOUTS
+   =============================== */
+
+/* LEFT ALIGN */
+
+.widget.feature.align-left .content {
+  width: 100%;
+  text-align: left;
+}
+
+/* CENTER ALIGN */
+
+.widget.feature.align-center .content {
+  width: 100%;
+  text-align: center;
+}
+
+/* RIGHT ALIGN */
+
+.widget.feature.align-right .content {
+  width: 100%;
+  text-align: right;
+}
+
+/* BUTTON TOP RIGHT */
+
+.widget.feature.btn-top-right .content {
+  width: 100%;
+  text-align: left;
+}
+
+.widget.feature.btn-top-right h2{
+  vertical-align: middle;
+}
+
+.widget.feature.btn-top-right button{
+    vertical-align: middle;
+}
+
+/* ===============================
+   CONTENT
+   =============================== */
+
+.widget.content {
+    padding: 0;
+    overflow: hidden;
+}
+
+.widget.content span.expand {
+    font-family: @font-swatch3-font-family;
+    background-color: @color-swatch3;
+    color: @font-swatch7-color;
+    font-size: @font-swatch5-font-size;
+    padding: 4px 8px;
+    margin: 4px 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.widget.content span.expand:hover,
+.widget.content span.expand:focus {
+    cursor: pointer;
+    background-color: darken(@color-swatch3,5%);
+}
+
+/* ===============================
+   IMAGE WIDGET
+   =============================== */
+
+.widget.image img
+{
+    display:block;
+    border: 0;
+    border-width: 0;
+    border-bottom:5px solid @color-swatch7;
+    max-width: 100%;
+}
+
+.widget.image span.image-title {
+    display: block;
+    margin:10px 0 0;
+    font-family: @font-swatch4-font-family;
+    font-weight: @font-swatch4-font-weight;
+    font-size: @font-swatch4-font-size;
+    color:  @font-swatch4-color;
+    line-height: @font-swatch4-line-height;
+    text-decoration: none;
+}
+
+.widget.image a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.widget.image span.image-title:hover {
+  color: lighten(@font-swatch4-color,30%);
+}
+
+.widget.image span.image-description {
+    display: block;
+    margin:0 0 10px;
+    font-family: @font-swatch5-font-family;
+    font-weight: @font-swatch5-font-weight;
+    font-size: @font-swatch5-font-size;
+    line-height: @font-swatch5-line-height;
+    color: @font-swatch5-color;
+}
+
+/* ===============================
+   BUTTONS CSS
+   =============================== */
+
+.widget.button button {
+    padding: 10px 30px;
+    margin: 0 0 10px;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    background-color: @color-swatch6;
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-repeat: inherit;
+    background-size: cover;
+    background-position: inherit;
+    color: @font-swatch7-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+
+.widget.button button:hover {
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    cursor: pointer;
+}
+
+button.btn {
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: @color-swatch6;
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-repeat: inherit;
+    background-size: cover;
+    background-position: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    
+}
+
+button.btn:hover {
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    cursor: pointer;
+}
+
+.widget.button i {
+    margin-right: 5px
+}
+
+/* ===============================
+   LINE WIDGET
+   =============================== */
+
+.widget.line {
+    padding: 20px 0;
+}
+
+hr.line {
+   width: 100%;
+   background-color: fade(@color-swatch5, 20%);
+}
+
+hr.line.align-left {
+    margin: 20px auto 20px 0px;
+}
+
+hr.line.align-center {
+    margin: 20px auto;
+}
+
+hr.line.align-right {
+    margin: 20px 0px 20px auto;
+}
+
+// -----------------------------
+// Gallery
+// -----------------------------
+
+.widget.gallery {
+    margin: 20px 0 20px -0.5%;
+    ul li {
+        @media @tablet {
+            width: 50%;
+            padding-bottom: 50%;
+        }
+        @media @mobile {
+            width: 100%;
+            padding-bottom: 100%;
+        }
+        span.inner {
+            .title,
+            .description {
+                // Font
+                color: @color-swatch1;
+                font-family: @font-swatch4-font-family;
+                letter-spacing: @font-swatch4-letter-spacing;
+                text-align: left;
+            }
+            .title {
+                font-size: 19px;
+                font-weight: 600;
+                line-height: 26px;
+            }
+            .description {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+    }
+    // Image Data
+    .image-data {
+        display: block;
+        opacity: 0;
+        background-color: @color-swatch7;
+        -webkit-transition: all 0.4s ease-out;
+        -moz-transition: all 0.4s ease-out;
+        -o-transition: all 0.4s ease-out;
+        transition: all 0.4s ease-out;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+/* Lightbox */
+
+.lb-data .lb-caption, .lb-data .lb-number {
+  font-family:@font-swatch5-font-family;
+  font-size:@font-swatch5-font-size;
+  font-weight: @font-swatch5-font-weight;
+  line-height:@font-swatch5-line-height;
+  color:lighten(@font-swatch5-color,50%);
+}
+
+.lb-data .lb-number {
+  font-size:bkscale(@font-swatch5-font-size,0.9);
+}
+
+
+
+/* =======================================
+   CLICK TO CALL
+   ==================================== */
+
+.widget.clicktocall {
+    padding: 8px 0
+}
+
+.widget.clicktocall a {
+    padding: 10px 0;
+    font-family: @font-swatch4-font-family;
+    font-size: @font-swatch4-font-size;
+    font-weight: @font-swatch4-font-weight;
+    line-height: @font-swatch4-line-height;
+    color: @font-swatch4-color;
+    letter-spacing: @font-swatch4-letter-spacing;
+    text-decoration: none;
+}
+
+.widget.clicktocall a:hover {
+    cursor: pointer;
+    background-position: 20px center;
+}
+
+/* ===============================
+   TWITTER FULL
+   =============================== */
+
+.widget.twitter {
+  padding: 0px;
+  list-style: none;
+  background-image: image('/images/twitterlogo.png');
+  background-repeat: no-repeat;
+  background-color:@color-swatch2;
+  background-position: 50% 7px;
+  background-size: 28px;
+  padding-top: 40px;
+  //margin-top: 20px;
+}
+
+.twitter div.twitter-profile-pic a,
+div.twitter-profile-pic {
+  line-height: 0;
+}
+
+.widget.twitter p {
+  font-size: 14px;
+  line-height: 1.6em;
+}
+
+.widget.twitter a {
+   color: @color-swatch4;
+   text-decoration: none;
+   padding-bottom: 4px;
+}
+
+.widget.twitter span a {
+  border-bottom: 0;
+  font-size: 11px;
+  color: @font-swatch4-color;
+}
+
+.widget.twitter ul {
+    padding: 0px;
+    margin: 0;
+    background-color: @color-swatch3;
+    padding: 20px 0;
+    @media @mobile {
+      padding: 10px 0;
+    }
+}
+
+.widget.twitter ul li {
+    border-bottom: none;
+    list-style: none;
+    font-family: @font-swatch5-font-family;
+    color: @font-swatch5-color;
+    padding-bottom: 30px;
+}
+
+.widget.twitter ul li a {
+  //font-size: 16px;
+}
+
+.widget.twitter ul li:last-child {
+    padding-bottom: 0px;
+}
+
+.widget.twitter .twitter-profile-pic {
+    float: left;
+    margin-right: 20px;
+    @media @tablet {
+      margin-right: 10px;
+    }
+}
+
+.widget.twitter .twitter-profile-pic a {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.widget.twitter .twitter-content span.bk-full-name {
+    font-family: @font-swatch4-font-family;
+    color: @font-swatch4-color;
+    font-size: @font-swatch4-font-size;
+}
+
+.widget.twitter .twitter-content span.bk-full-name {
+    line-height: 40px;
+}
+
+
+/* ===============================
+   CONTACT FORM WIDGET
+   =============================== */
+
+.widget.contactform form {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.widget.contactform fieldset {
+    border: none;
+    padding: 0;
+}
+
+.widget.contactform fieldset label {
+    width: 100%;
+    float: left;
+    font-family:@font-swatch5-font-family;
+    font-size:@font-swatch5-font-size;
+    font-weight:@font-swatch5-font-weight;
+    line-height:@font-swatch5-line-height;
+    color: @font-swatch5-color;
+    letter-spacing: @font-swatch5-letter-spacing;
+}
+
+.widget.contactform fieldset input {
+    height: 40px;
+    width: 100%;
+    background-color: @color-swatch1;
+    font-family: @font-swatch5-font-family;
+    font-size: @font-swatch5-font-size;
+    color: @color-swatch5;
+    text-indent: 10px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    padding: 0;
+    border: 1px solid darken(@color-swatch3, 10%);
+    &:hover {
+        border: 1px solid darken(@color-swatch3, 20%);
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px darken(@color-swatch3,10%);
+    }
+}
+
+.widget.contactform fieldset textarea {
+    height: 100px;
+    width: 100%;
+    background-color: @color-swatch1;
+    font-family: @font-swatch5-font-family;
+    font-size: @font-swatch5-font-size;
+    color: @font-swatch5-color;
+    text-indent: 10px;
+    padding-top: 10px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    resize: vertical;
+    overflow: auto;
+    border: 1px solid darken(@color-swatch3, 10%);
+    &:hover {
+        border: 1px solid darken(@color-swatch3, 20%);
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px darken(@color-swatch3,10%);
+    }
+}
+
+.widget.contactform fieldset button.btn {
+    padding: 8px 30px;
+    margin: 0;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    letter-spacing: 0.2px;
+    background-color: @color-swatch6;
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-repeat: inherit;
+    background-size: cover;
+    background-position: inherit;
+    color: @font-swatch7-color;
+    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover {
+        background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+        background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+        background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+        background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+        background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+        cursor: pointer;
+    }
+    @media @tablet {
+        width: 40%;
+    }
+    @media @mobile {
+        width: 100%;
+    }
+}
+  
+.widget.contactform fieldset button.btn:hover {
+  background-color: lighten(@color-swatch6,5%);
+  color: @font-swatch7-color;
+  cursor: pointer;
+}
+
+/* ===============================
+   REDIRECT WIDGET
+   =============================== */
+
+.widget.redirecttodesktop {
+    padding: 8px 0
+}
+
+.widget.redirecttodesktop a {
+    padding-right: 30px;
+    padding-top: 2px;
+    background-image: image('/images/desktop.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    font-size: @font-swatch5-font-size;
+    color: @font-swatch5-color;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.widget.redirecttodesktop a:hover,
+.desktop a:active {
+    background-image: image('/images/desktop.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* ===============================
+   PAYPAL BUTTON
+   =============================== */
+
+
+.widget.paypalbuynow .widget.button.paypal {
+    margin: 0;
+    padding: 10px 30px 10px 50px;
+    background-image: image('/images/paypal.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 19px center;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: 0.2px;
+    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
+    text-transform: uppercase;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    background-color: lighten(@font-swatch7-background-color, 5%);
+    color: @font-swatch7-color;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.widget.paypalbuynow .widget.button.paypal:hover {
+  background-color: @color-swatch6;
+}
+
+/* ===============================
+   DROPBOX BUTTON
+   =============================== */
+
+.widget.dropbox button {
+    padding: 10px 30px 10px 50px;
+    background-image: image('/images/dropbox-icon.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 19px center;
+    margin: 5px 0px;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: 0.2px;
+    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
+    text-transform: uppercase;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    background-color: lighten(@font-swatch7-background-color, 5%);
+    color: @font-swatch7-color;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.widget.dropbox button:hover {
+  background-color: @color-swatch6;
+  cursor: pointer;
+}
+
+
+/* ===============================
+   TWEET THIS
+   =============================== */
+
+.widget.tweet .tweet {
+}
+
+.widget.tweet a {
+    background-repeat: no-repeat;
+    background-position: 18px;
+    background-size: 24px;
+    padding: 12px 30px 12px 50px;
+    margin: 5px 0px;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: 0.2px;
+    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
+    text-transform: uppercase;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    background-color: lighten(@font-swatch7-background-color, 5%);
+    color: @font-swatch7-color;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.widget.tweet a:hover, .tweet a:active {
+  cursor: pointer;
+  background-color: @color-swatch6;
+}
+
+/* ==================================
+   SOCIAL BAR WIDGET / SOCIAL PROFILE
+   =============================== */
+
+.widget.profile:before,
+.widget.profile:after {
+    content: " ";
+    display: table;
+}
+
+.widget.profile:after {
+    clear: both
+}
+
+.widget.profile {
+    *zoom: 1
+}
+
+.widget.socialicons,
+.widget.profile .bk-profile-socialicons {
+    padding: 0px;
+    font-size: 1em;
+    font-family: @font-swatch7-font-family;
+    margin: 0;
+}
+
+.widget.socialicons a,
+.widget.profile .bk-profile-socialicons a {
+    text-decoration: none;
+    text-indent: -9999px;
+    white-space: nowrap;
+}
+
+.widget.profile .bk-profile-socialicons span {
+    display: inline-block
+}
+
+.widget.socialicons span a,
+.widget.profile .bk-profile-socialicons span a {
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom: 8px;
+    background-size: 18px;
+    width: 32px;
+    height: 32px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: @color-swatch7;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    text-indent: 9999px;
+}
+
+.widget.socialicons span a:hover,
+.widget.profile .bk-profile-socialicons span a:hover {
+    background-color: darken(@color-swatch7,10%);
+}
+
+.widget.profile span, .widget.profile a, .widget.profile p {
+  float: none;
+}
+
+.widget.profile .bk-profile-address p {
+  float: left;
+  padding-right: 5px;
+}
+
+
+/* ===============================
+   6. MENU
+   =============================== */
+
+.container {
+    border: 1px solid black;
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+.widget.menu .menu-subsection {
+    border: 0px;
+}
+
+.widget.menu {
+    margin: 0 auto;
+    @media only screen and (max-width: 1084px) {
+         width: 90%;
+    }
+    @media @tablet {
+        background-image: none;
+        width: 100%;
+    }
+
+    .main {
+        width: 100%;
+        padding-top: 20px;
+        margin: 0 auto;
+            @media only screen and (max-width: 1084px) {
+                width: 93%;
+            }
+            @media @tablet {
+                //background-color: @color-swatch1;
+                //width: 90%;
+                padding: 10px 0;
+            }
+            @media @mobile {
+                margin-bottom: 10px;
+                padding: 0;
+            }
+
+            ol, li {    /* removes list-style */
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            } 
+
+
+            /* MENU-HEADER AND SUB-SECTION HEADER */
+
+            .menu-header, .menu-subsection-header {
+                padding: 0 0 1.2em;
+                    @media @tablet {
+                        padding: 1.25em 0 0.75em;
+                    }
+                    h1, h2, {    /* menu-name menu-section-name */
+                        text-align: center;
+                        overflow: hidden; 
+                    &:before, &:after {
+                        content: "";
+                        @media only screen and (max-width: 480px) {
+                            content: none;
+                            display: block;
+                            height: auto;
+                            width: auto;
+                            margin-bottom: 0;
+                        }
+                    }
+                    &:before {
+                        @media only screen and (max-width: 480px) {
+                            right: 0;
+                            margin-left: 0;
+                         }
+                    }
+                    &:after {
+                        @media only screen and (max-width: 480px) {
+                            right: 0;
+                            margin-left: 0;
+                         }
+                    }
+                @media only screen and (max-width: 480px) {
+                     padding: 1em 0 0.5em;
+                }
+            }
+                    p {    /* menu-description  menu-section-description  menu-availability */
+                        text-align: center;       
+                    }  
+            }   /* end MENU-HEADER AND SUB-SECTION HEADER */
+
+
+            /* ITEMS */
+
+            .menu-items { /* ol */
+
+                li {    /* menu-item */
+                    display:block;
+                    position: relative;
+                    &.menu-item-promoted { /* menu-item-promoted */
+                        padding: 1.2em;
+                        margin: 11px 1px 20px;
+                        border: 5px solid @color-swatch1;
+                        .inner-item {
+                            border: 0;
+                            padding: 0;
+                            margin: 0;
+                        }
+                        h3 {
+                            width: auto;
+                            margin-top: 0 !important;
+                            margin-right: 1em !important;
+                        }
+                    }   /* end menu-item-promoted */
+
+                    .inner-item {
+                        border-bottom: 1px solid @color-swatch3;
+                        padding-bottom: 30px;
+                        margin-bottom: 30px;
+                        h3 {    /* menu-item-name */  
+                            padding: 0;
+                            font-family: @font-swatch3-font-family;
+                            color: @font-swatch3-color;
+                        }
+                        /* Menu image background */
+
+                        .menu-item-image-wrap {
+                           background-size: cover;
+                           background-position: center;
+                           -webkit-background-size: cover;
+                           -moz-background-size: cover;
+                           -o-background-size: cover;
+                           clear:both;
+                           background-repeat: no-repeat;
+                           height: 200px;
+                           background-position: center;
+                           img {
+                               display: none;
+                           }
+                        }
+                        .menu-item-price p {   /* standard-price */
+                            font-family:@font-swatch3-font-family;
+                            font-size:@font-swatch3-font-size;
+                            font-weight: @font-swatch3-font-weight;
+                            line-height:@font-swatch3-line-height;
+                            color: @font-swatch3-color;
+                            letter-spacing: @font-swatch3-letter-spacing;
+                            padding: 0px;
+                            margin: 0;
+                            display: block;
+                        }
+                        p {    /* item-description */
+                            font-family:@font-swatch5-font-family;
+                            font-size:@font-swatch5-font-size;
+                            font-weight: @font-swatch5-font-weight;
+                            line-height:@font-swatch5-line-height;
+                            color:@font-swatch5-color;
+                            letter-spacing: @font-swatch5-letter-spacing;
+                            float: left;
+                            padding: 0;
+                        }
+                        h4 {  /* nutritional-title */
+                            font-family:@font-swatch4-font-family;
+                            font-size:@font-swatch4-font-size;
+                            font-weight: @font-swatch4-font-weight;
+                            line-height:@font-swatch4-line-height;
+                            color: @font-swatch4-color;
+                            letter-spacing: @font-swatch4-letter-spacing;
+                            float: left;
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .menu-item-nutritional-prop { 
+                            font-size:@font-swatch5-font-size;
+                            font-weight: @font-swatch5-font-weight;
+                            line-height:@font-swatch5-line-height;
+                            color: @font-swatch5-color;
+                            float: left;
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .menu-section-item-dietary-props {
+                                margin-top: 0.5em;
+                                padding: 0;
+                                clear: both;
+                                display: block;
+                                .dietary-icon {
+                                    background-color: @color-swatch2;
+                                    width: auto;
+                                    height: auto;
+                                    border: 0;
+                                    background-repeat: no-repeat;
+                                    background-size: 19px;
+                                    background-position: center;
+                                    font-family:@font-swatch7-font-family;
+                                    font-size:@font-swatch5-font-size;
+                                    line-height: 15px;
+                                    z-index: 9999999;
+                                    color: @font-swatch7-color;
+                                    font-weight: @font-swatch7-font-weight;
+                                    padding: 5px;
+                                }                                
+                                .not-spicy-icon {
+                                    display:none;
+                                }
+
+                            } /* end menu-section-item-dietary-props */ 
+
+                        .menu-item-description, .menu-section-item-description {
+                            margin-bottom: 0.5em;
+                            width: 100%;
+                        }
+
+                    }   /* end inner-item */
+
+                }  /* end li .menu-item */
+
+            }   /* end ol .menu-items */  
+
+            .menu-subsection .menu-subsection-promoted { /* PROMOTED SUB-SECTION */  
+                border: 6px solid @color-swatch1;
+                padding: 2em 2em 0;
+                margin-bottom: 2em;
+                position: relative;
+                &:before {
+                   content: " ";
+                   position: absolute;
+                   top: 3px;
+                   left: 3px;
+                   right: 3px;
+                   bottom: 3px;
+               }
+                @media @mobile {
+                    padding: 0 2em 0;
+                }
+                .menu-subsection-header {
+                    border-bottom: 1px solid @color-swatch3;
+                    margin-bottom: 20px;
+                }
+            } /* end PROMOTED SUB-SECTION */
+
+            .menu-info {
+                display: block;
+                text-align: center;
+                margin: 10px 0;
+                padding: 20px;
+                width: 100%;
+                @media @tablet { 
+                    margin: 0;
+                    padding: 0px;
+                }
+                p {    /* menu-note */
+                    float: left;
+                    width: 100%;
+                    color: @color-swatch4;
+                    margin-bottom: 10px;
+                }
+                dl {    /* menu-dietary-key */
+                    display: inline-block;
+                    margin: 5px 0;
+                    text-align: block;
+                    dt, dd {
+                        display: inline-block;
+                    }
+                    dt {    /* dietary-icon */
+                        vertical-align: top; 
+                        width: 20px;
+                        height: 20px;
+                        background-size: 20px;
+                        background-color: @color-swatch3;
+                        border: 2px solid @color-swatch6;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    dd {    /* text for icon */
+                        font-family:@font-swatch5-font-family;
+                        font-size:@font-swatch5-font-size;
+                        font-weight: @font-swatch5-font-weight;
+                        line-height:@font-swatch5-line-height;
+                        color: @font-swatch5-color; 
+                        letter-spacing: @font-swatch5-letter-spacing;
+                        margin: 0 5px -7px;
+                    }   
+                }/* end dl */
+            }   /* end menu-info */
+    }/* end main */
+
+} /* end .widget.menu */
+
+/* ===============================
+  BLOG
+   =============================== */
+
+.widget {
+    &.blogpostlist {
+        .blog-post-item {
+            border-bottom: 1px dotted @color-swatch2;
+            text-align: center;
+        }
+
+    }
+}
+
+.blog-post-item {
+    margin: 1.5em 0;
+    padding-bottom: 1em;
+    h2 {
+        a {
+            font-family: @font-swatch2-font-family;
+            font-size: @font-swatch2-font-size;
+            font-weight: @font-swatch2-font-weight;
+            line-height: @font-swatch2-line-height;
+            color: @font-swatch2-color;
+            letter-spacing: @font-swatch2-letter-spacing;
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+                border-bottom: 1px solid @font-swatch2-color;
+            }
+        }
+    }
+}
+
+.blog-post-metadata {
+    background-color: transparent;
+    background-image: none;
+    margin-top: 0;
+    text-align: left;
+}
+
+.blog-list-footer {
+    background-color: transparent;
+    background-image: none;
+}
+
+.blog-post-more-link {
+    float: left;
+    width: 100%;
+    margin: 10px 0;
+    a {
+        text-transform: uppercase;
+        padding: 8px 20px;
+        color: @font-swatch7-color;
+        background-color: @font-swatch7-background-color;
+        &:hover {
+            text-decoration: none;
+            background-color: @font-swatch7-background-color-hover;
+        }
+    }
+}
+
+/* BLOG SEARCH */
+.blogsearch {
+    form {
+        button {
+          //padding: 10px 30px;
+        }
+    }
+}
+
+.blog-post-feature-image-wrap {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 2em;
+  background-size: cover;
+  background-position: center;
+  img {
+    display: none;
+  }
+}
+
+.blog-post-sharing {
+  margin-top:10px
+}
+
+/* ===============================
+   Ecom
+   =============================== */
+
+.widget.ecomproduct .ecom-product .ecom-product-info .ecom-product-variation select {
+    -webkit-appearance: none;
+    -moz-appearance: window;
+    appearance: none;
+    outline: none !important;
+    -moz-outline-style: none;
+    border: 1px solid darken(@color-swatch3, 10%);
+    position: relative;
+    padding: 10px 23px 10px 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-image: image('/images/arrow.png');
+    background-position: right 6% center;
+    background-repeat: no-repeat;
+    background-color:@color-swatch1;
+    background-position-x: 98%;
+    background-position-y: 53%;
+}
+
+.widget.ecomcheckout .delivery select {
+  -webkit-appearance: none;
+    -moz-appearance: window;
+    appearance: none;
+    outline: none !important;
+    -moz-outline-style: none;
+    border: 1px solid darken(@color-swatch3, 10%);
+    position: relative;
+    padding: 10px 23px 10px 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-image: image('/images/arrow.png');
+    background-position: right 6% center;
+    background-repeat: no-repeat;
+    background-position-x: 99%;
+    background-position-y: 53%;
+    background-color:@color-swatch1;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: window;
+    appearance: none;
+    outline: none !important;
+    -moz-outline-style: none;
+    border: 1px solid darken(@color-swatch3, 10%);
+    position: relative;
+    padding: 14px 23px 12px 10px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-image: image('/images/arrow.png');
+    background-position: right 6% center;
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 53%;
+    background-color: @color-swatch1;
+}
+
+select::-ms-expand {
+   display: none;
+}
+.widget.ecomproduct .ecom-product .ecom-product-info .ecom-product-variation select,
+   select {
+   -moz-appearance: none;
+   text-indent: 0.01px
+   ;
+   text-overflow: '';
+}
+
+.ecom-product-add-to-cart-btn-wrapper {
+    float: left;
+}
+
+.widget.ecomproduct .ecom-product .btn {
+    margin: 20px 20px 0 0;
+}
+
+.checkout-empty-link.btn {
+  background-color:@color-swatch4;
+}
+
+.widget.ecomproductslist label {
+  display:block;
+}
+
+h2.ecom-productslist-title, h2.ecom-featuredproducts-title {
+    font-size: @font-swatch4-font-size;
+}
+
+// Ecom Basket Summary
+
+.ecombasketsummary a {
+  font-family: @font-swatch7-font-family;
+  font-size: @font-swatch7-font-size;
+  font-weight: @font-swatch7-font-weight;
+}
+
+.basket-summary-product-info a {
+  font-family: @font-swatch6-font-family;
+  font-size: @font-swatch6-font-size;
+  font-weight: @font-swatch6-font-weight;
+}
+
+.ecombasket .ecombasket-pull p {
+  font-family: @font-swatch7-font-family;
+  font-size: @font-swatch7-font-size;
+}
+
+.widget.ecombasketsummary {
+  padding-top:20px;
+  table {
+    border-spacing: 0;
+    width: 100%;
+    list-style: none;
+    font-size: 18px;
+    color: @color-swatch4;
+    margin: 20px 0 30px;
+    @media @tablet {
+      padding: 0px;
+    }
+    @media @mobile {
+      padding: 0px;
+      margin:0px 0px 30px 0px;
+    }
+    tr:first-child { 
+        outline: 1px solid darken(@color-swatch3,10%);
+        font-size: 14px;
+        font-weight: 400;
+        color: @font-swatch4-color;
+        text-transform: uppercase;
+        @media @mobile {
+            display: none!important;
+        }
+    }
+    th {
+      text-align: left;
+      position: relative;
+      left: 20px;
+    }
+            tr td {
+            border-bottom: 1px solid darken(@color-swatch3,10%);
+            @media (max-width: 360px) {
+                display: table;
+                width: 100%;
+                border-bottom: 0;
+            }
+            &:nth-child(1),
+            &:nth-child(2) {
+                padding: 20px;
+                vertical-align: top;
+                @media @mobile {
+                  padding:20px 0px;
+                }
+            }
+            &:nth-child(2) {
+                @media (max-width: 530px) {
+                    padding-left: 0;
+                }
+            }
+            &:nth-child(3) {
+                padding: 20px;
+                margin-top:0;
+            }
+            // Responsive
+            &:nth-child(1) {
+                @media (max-width: 360px) {
+                    padding-bottom: 0;
+                }
+            }
+            &:nth-child(2),
+            &:nth-child(3) {
+                @media (max-width: 360px) {
+                    padding: 0 20px 0;
+                    border-left: 0;
+                }
+            }
+            &:last-child {
+                @media (max-width: 360px) {
+                    padding: 6px 20px;
+                    margin: 20px 0 0;
+                    border-bottom: 1px solid darken(@color-swatch3,10%);
+                    border-top: 1px solid darken(@color-swatch3,10%);
+                }
+            }
+        }
+        tr:last-child td:last-child {
+            @media (max-width: 360px) {
+                border-top: 0;
+                margin-top: 0;
+                padding-top: 0;
+            }
+}
+    .basket-summary-items {
+      background: transparent;
+      @media @tablet {
+                img {
+            max-width:100px!important;
+        }
+              @media @mobile {
+                img {
+            max-width:80px!important;
+        }
+        display: table-row-group;
+        + tr {
+          display: block;
+        }
+      }
+  }
+      &:last-child {
+        td {
+          padding-bottom: 25px;
+        }
+      }
+      .image-wrap {
+        background-image: none!important;
+      }
+      td:nth-child(2) {
+        padding-left: 15px;
+      }
+      .basket-summary-pricepu, .basket-summary-quantity, .basket-summary-amount {
+        font-size: @font-swatch5-font-size;
+        line-height: @font-swatch5-line-height;
+        label {
+          display:block;
+        }
+      }
+      .basket-summary-pricepu {
+        display: block;
+      }
+      .basket-summary-quantity {
+        margin-top: 4px;
+      }
+      .basket-summary-quantity, .basket-summary-quantitybtn {
+        display: inline-block;
+        label {
+          display:block;
+        }
+        span {
+          padding: 5px 25px 6px;
+          margin: 0;
+          position: relative;
+          top: -2px;
+        }
+        button {
+          width: 30px;
+          height: 30px;
+          padding: 0;
+          box-shadow: none;
+          border:0;
+          color:@color-swatch1;
+          background-color:@color-swatch4;
+          margin: 0;
+      &:hover {
+        background-color:lighten(@color-swatch4,10%);
+      }
+        }
+      }
+      .basket-summary-amount {
+        color: darken(@color-swatch4, 10%);
+      }
+    }
+    .basket-summary-subtotal {
+      color: darken(@color-swatch4, 10%);
+      display: block;
+      font-size: @font-swatch4-font-size;
+      line-height: @font-swatch4-line-height;
+      margin-top: 25px;
+      border: 2px solid @color-swatch7;
+      padding: 20px;
+      font-weight: 700;
+    }
+  }
+}
+
+.basket-summary-submit, .basket-summary-empty-cta {
+  display: inline-block;
+  padding: 0 12px;
+  line-height: 45px;
+  height: 45px;
+  font-weight: @font-swatch7-font-weight;
+}
+
+.basket-summary-empty-cta.btn {
+  background-color:@color-swatch3;
+  text-decoration: none;
+  &:hover {
+    background-color:@color-swatch7;
+  }
+}
+
+.basket-summary-legal-links {
+    padding-top:10px;
+    list-style: none;
+    padding-left:0;
+    &:hover {
+        text-decoration:underline!important;
+    }
+}
+
+.btn.ecom-product-go-to-checkout-btn {
+    //background-color:@color-swatch4;
+    padding: 10px;
+    text-transform: uppercase;
+    display: block;
+    color: @color-swatch4;
+    &:hover {
+        //background-color: lighten(@color-swatch4,10%);
+        text-decoration: none;
+    }
+}
+
+  .ecom-productlist-info {
+    text-align:center;
+  }
+
+/* ===============================
+   SLIDESHOW WIDGET
+   =============================== */
+
+.widget.responsiveslideshow {
+    .slideshow-image-list,
+    .slideshow-widget {
+        min-height: 450px;
+        @media @tablet {
+            min-height: 350px;
+        }
+        @media @mobile {
+            min-height: 280px;
+            height: 280px;
+        }
+    }
+    .title {
+        display: block;
+    }
+    .content-wrapper {
+        background: rgba(0,0,0,0.5);
+    }
+    .slideshow-widget {
+        /* Arrows */
+        .btn-prev,
+        .btn-next {
+            font-size: 0;
+            z-index: 11;
+            text-indent: -99999px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.5);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .btn-prev {
+            &:after {
+                content: "\2190";
+                color: #fff;
+                top: 5px;
+            }
+        }
+        .btn-next {
+            &:after {
+                content: "\2192";
+                color: #fff;
+                top: 5px;
+            }
+        }
+        /* Play Button */
+        .btn-play {
+            background: rgba(0,0,0,0.5);
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            &:after {
+                color: #fff;
+                letter-spacing: -4px;
+                top: -2px;
+            }
+        }
+    }
+    /* Slideshow Controls */
+    .slideshow-widget-controls {
+        .dot {
+            width: 9px;
+            height: 9px;
+            margin: 2px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            &.selected {
+                background-color: @color-swatch5;
+                border: 0;
+            }
+        }
+    }
+}
+
+.widget.responsiveslideshow .btn-play:after {
+    font-size:20px;
+}
+
+.widget.responsiveslideshow .slideshow-widget .btn-play {
+    background: rgba(0,0,0,0.5);
+    font-size: 0;
+    text-indent: -99999px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 12;
+    width: 11%;
+    height: 42px;
+    top: 43%;
+    left: 45%;
+}
+
+.widget.responsiveslideshow .slideshow-widget .btn-play:after {
+    top:-10px;
+}
+
+.widget.responsiveslideshow .title, .widget.responsiveslideshow .description {
+  padding:0;
+}
+
+.widget.responsiveslideshow .content-wrapper {
+    padding: 15px 15px 10px 15px;
+}
+
+/* ===============================
+   PROFILE WIDGET
+   =============================== */
+
+.widget.profile {
+  margin: 0 auto;
+}
+
+
+.widget.profile span,
+.widget.profile a {
+    display: block;
+    font-size: @font-swatch5-font-size;
+    font-family: @font-swatch5-font-family;
+    color: @color-swatch5;
+    line-height: @font-swatch5-line-height;
+    font-weight: @font-swatch5-font-weight;
+    float: left;
+}
+
+.widget.profile .bk-profile-strapline {
+  text-align: left;
+}
+
+.widget.profile .bk-profile-address {
+  text-align: left;
+}
+
+.widget.profile a:hover {
+    color: @color-swatch2;
+    text-decoration: none;
+}
+
+input, textarea {
+    background-color: @color-swatch1;
+    border: 1px solid darken(@color-swatch3, 10%);
+    height: 40px;
+}
+
+.widget.profile form fieldset input {
+    margin-top: 0;
+    background-color: @color-swatch1;
+    border: 1px solid darken(@color-swatch3, 10%);
+    width: 70%;
+    float: left;
+    &:hover {
+        border: 1px solid darken(@color-swatch3, 20%);
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px darken(@color-swatch3,10%);
+    }
+    @media @tablet {
+        width: 50%;
+    }
+    @media @mobile {
+        margin: 10px 0;
+        width: 100%;
+    }
+}
+
+/* FOOTER PROFILE - twitter in profile widget*/
+/*  LATEST TWEET IN FOOTER */
+
+.widget.profile .twitter a {
+   font-family: @font-swatch5-font-family;
+   color: darken(@font-swatch5-color,30%);
+   font-size:@font-swatch5-font-size;
+   text-decoration: none;
+}
+
+.widget.profile .twitter a:hover {
+    text-decoration: underline;
+}
+
+.widget.profile .twitter {
+    padding: 0;
+    margin: 0;
+}
+
+.widget.profile .twitter li {
+    border-bottom: none;
+    list-style: none;
+    font-family: @font-swatch5-font-family;
+    font-size: @font-swatch5-font-size;
+    color: @font-swatch5-color;
+    padding: 0;
+    border-bottom: none;
+}
+
+.widget.profile .twitter .twitter-content span.bk-full-name {
+    font-family: @font-swatch5-font-family;
+    color: darken(@font-swatch5-color,30%);
+}
+
+.widget.profile .twitter .twitter-content p {
+    padding: 0;
+}
+
+.widget.profile .twitter .twitter-content a:hover {
+  text-decoration: underline;
+  color: lighten(@font-swatch5-color,30%);
+}
+
+.widget.profile .twitter-content span a {
+  color: darken(@font-swatch5-color,30%);
+}
+
+footer.bk-footer .widget.profile .twitter span, .widget.profile .twitter span a {
+  display: inline;
+}
+
+
+
+/* FOOTER PROFILE - SINGLE EMAIL FORM */
+
+.widget.profile fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widget.profile fieldset label {
+    width: 100%;
+    float: left;
+    font-family:@font-swatch5-font-family;
+    font-size:@font-swatch5-font-size;
+    font-weight:@font-swatch5-font-weight;
+    line-height:@font-swatch5-line-height;
+    color: @font-swatch5-color;
+    letter-spacing: @font-swatch5-letter-spacing;
+    text-align: left;
+}
+
+.widget.profile fieldset input {
+    height: 40px;
+    border: 0;
+    font-family: @font-swatch5-font-family;
+    font-size: 14px;
+    color: @font-swatch5-color;
+    background-color: @color-swatch3;
+    text-indent: 8px;
+    padding: 0;
+    float: left;
+}
+
+.widget.profile fieldset input:focus {
+    outline: none;
+    box-shadow: 0 0 3px darken(@color-swatch3,10%);
+}
+
+.widget.profile fieldset button.btn {
+    padding: 8px 30px 7px 30px;
+    //margin-left: 5px;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    color: @font-swatch7-color;
+    background-color: @color-swatch6;
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-repeat: inherit;
+    background-size: cover;
+    background-position: inherit;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    float: left;
+    line-height: 25px;
+    width: 30%;
+    @media @tablet {
+        width: 50%;
+    }
+    @media @mobile {
+        width: 100%;
+    }
+}
+
+.widget.profile fieldset button.btn:hover {
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    cursor: pointer;
+}
+
+/* ===============================
+   LINKED IN
+   =============================== */
+
+.container-outer .li-profile-container {
+  padding: 0;
+  margin: 0;
+
+}
+
+.no-profile {
+  font-family:@font-swatch5-font-family;
+  font-size:@font-swatch5-font-size;
+  font-weight: @font-swatch5-font-weight;
+  line-height:@font-swatch5-line-height;
+  color:@font-swatch5-color;
+  letter-spacing: @font-swatch5-letter-spacing;
+
+}
+
+/* ===============================
+   MAP WIDGET
+   =============================== */
+
+.widget.map {
+  border: 1px solid darken(@color-swatch1, 10%);
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   SIGNUPFORM WIDGET
+   =============================== */
+
+ .widget.signupform {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.widget.signupform fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widget.signupform fieldset label {
+    width: 100%;
+    float: left;
+    font-family:@font-swatch5-font-family;
+    font-size:@font-swatch5-font-size;
+    font-weight:@font-swatch5-font-weight;
+    line-height:@font-swatch5-line-height;
+    color: @font-swatch5-color;
+    letter-spacing: @font-swatch5-letter-spacing;
+}
+
+.widget.signupform fieldset input, .blog-search-form input {
+    height: 42px;
+    width: 80%;
+    background-color: @color-swatch1;
+    font-family: @font-swatch5-font-family;
+    font-size: @font-swatch5-font-size;
+    color: @color-swatch5;
+    text-indent: 10px;
+    padding: 0;
+    border: 1px solid darken(@color-swatch3, 10%);
+    float: left;
+    &:hover {
+        border: 1px solid darken(@color-swatch3, 20%);
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px darken(@color-swatch3,10%);
+    }
+    @media @tablet {
+        width: 60%;
+    }
+    @media @mobile {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.widget.signupform fieldset input:focus {
+    outline: none;
+    box-shadow: 0 0 3px darken(@color-swatch3,10%);
+}
+
+.widget.signupform fieldset button.btn, .blog-search-submit-button {
+    width: 20%;
+    padding: 9px 30px;
+	//margin: 6px 6px;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    line-height: @font-swatch7-line-height;
+    letter-spacing: 0.2px;
+    background-color: @color-swatch6;
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
+    background-repeat: inherit;
+    background-size: cover;
+    background-position: inherit;
+    color: @font-swatch7-color;
+    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
+    text-decoration: none;
+    text-transform: uppercase;
+    @media @tablet {
+        width: 40%;
+    }
+    @media @mobile {
+        width: 100%;
+    }
+}
+
+.widget.signupform fieldset button.btn:hover, .blog-search-submit-button:hover {
+    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+    cursor: pointer;
+}
+
+.blog-search-form label {
+	display: block;
+}
+
+/* ===============================
+   IPAD WIDTH
+   =============================== */
+
+@media only screen and (max-width: 768px) { 
+    
+
+    /* DEFAULT PAGE TYPE */
+
+    .bk-pt-default header.bk-header {
+      padding: 0;
+      border-top: 5px solid @color-swatch2;
+      padding: 10px;
+      width: 100%;
+    }
+    
+    .bk-pt-default .inner-bg {
+      border-top: none;
+    }
+
+    header.bk-header {
+        padding: 10px;
+    }
+
+    /* COMPANY HEADER */
+
+    .widget.companyheader {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .companyheader {
+      width: 90%;
+    }
+
+    /* NAV */
+
+
+    .widget.extendednavigation {
+        display: block;
+        width: 100%;
+        min-height:0;
+    }
+
+     /* NAV ICON */
+
+  .widget .extendednavigation a.pull {
+    display: block;
+    position: absolute;
+    top: -8px;
+  }
+
+    .widget .extendednavigation a.pull:after {
+    content:"";
+    background: image('/images/nav-icon.png') no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    box-shadow: none;
+  }
+
+  .widget .extendednavigation {
+    min-height: 0px;
+  }
+
+  .extendednavigation li.selected {
+    a {
+        border: 0;
+        padding-bottom: 0px!important;    }
+  }
+
+  /* NAV */
+
+  .widget.extendednavigation {
+    top: -30px;
+    left: -3%;
+  }
+  
+ .widget .extendednavigation ul {
+    width: 100%;
+    display: none;
+    margin: 0;
+    padding-top: 40px;
+  }
+
+  .widget.extendednavigation ul li {
+    text-align: center;
+  }
+
+   .widget.extendednavigation ul li:last-child {
+    border-bottom: none;
+  }
+
+  .widget.extendednavigation ul li:hover .text {
+    color: @font-swatch6-color-hover;
+  }
+
+  .widget.extendednavigation ul li:hover .text {
+    color: @font-swatch6-color-hover;
+  }
+
+  .widget .extendednavigation li {
+    width: 100%;
+    padding: 0;
+  }
+
+  .widget .extendednavigation ul li:hover ul {
+    margin-top: 0;
+  }
+
+  .widget.extendednavigation ul li a, .widget.extendednavigation ul li.folder .text {
+      padding: 0px 0px;
+      margin: 0;
+  }
+
+  .widget.extendednavigation ul li > ul {
+      display: none!important;
+  }
+
+  .widget.extendednavigation ul li:hover > ul {
+      display: block!important;
+      width: 100%;
+      padding: 0;
+  }
+
+  .widget.extendednavigation ul li:hover > ul > li {
+    padding: 0;
+  }
+
+  .widget.extendednavigation li:hover > ul > li > a {
+    padding: 8px 0px;
+  }
+
+  .widget.extendednavigation ul li:hover > ul > li .text {
+    color: @font-swatch6-color;
+  }
+
+  .widget.extendednavigation ul li:hover > ul > li:hover .text {
+    color: @font-swatch6-color-hover;
+  }
+
+  .widget.extendednavigation ul li.folder {
+    border-radius: 0;
+  }
+
+  .widget.extendednavigation ul li:hover > ul li:first-child {
+    border-top: none;
+  }
+
+  .widget.extendednavigation li:hover > ul > li > a {
+    padding-left: 10px;
+  }
+
+      /* FEATURE IMAGES */
+
+    .blue-block{
+      height: 194px;
+      margin-top:0;
+    }
+
+    .feature-image-block1{
+      width:48%;
+      float:left;
+    }
+
+    .feature-image-block2{
+      width:48%;
+      float:right;
+    }
+
+
+    /* FEATURE */
+
+    .widget.feature {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .widget.feature .feature-bgimg {
+        height: 450px;
+    }
+
+    .widget.feature .content {
+        height: 450px;
+    }
+
+    .widget.feature .content .spare {
+    }
+
+    .widget.feature h2 {
+        font-size: bkscale(@font-swatch8-font-size,0.9);
+        line-height: bkscale(@font-swatch8-line-height,0.9);
+        padding: 0 25px 5px;
+    }
+
+    .widget.feature h3 {
+        font-size: bkscale(@font-swatch9-font-size,0.9);
+        line-height: bkscale(@font-swatch9-line-height,0.9);
+        padding: 0 25px;
+    }
+
+    .feature-columns .columns-two-66-34 .columns-two-left {
+      width: 100%;
+      margin-bottom: 20px!important;
+    }
+
+    .feature-columns .columns-two-66-34 .columns-two-right {
+      width: 100%;
+      margin-left: 0!important;
+    }
+
+    .yellow-block {
+      margin-top: 0;
+      height:193px;
+    }
+
+    /* NAV */
+
+    .widget.extendednavigation ul li a:hover {
+        text-decoration: none;
+        border-bottom:0;
+        margin-bottom:0;
+        padding-bottom:0;
+    }
+
+    .widget.extendednavigation ul li.folder:after {
+        right: 10px;
+    }
+
+    .widget .extendednavigation ul li {
+      border-bottom:none;
+    }
+
+    .widget.extendednavigation ul li.folder:after {
+        right: -12px;
+    }
+
+     .widget.extendednavigation ul li, .widget.extendednavigation ul li.folder .text {
+      padding:0;
+    }
+
+     /* GALLERY */
+
+    .widget.gallery li span.inner .title, .widget.gallery li span.inner .description {
+      font-size:bkscale(@font-swatch5-font-size,0.9);
+      line-height:bkscale(@font-swatch5-line-height,0.9);
+    }
+
+
+    /* SLIDESHOW */
+
+    .widget.responsiveslideshow .slideshow-image-list, 
+    .widget.responsiveslideshow .slideshow-widget {
+        height:400px;
+    }
+
+  /* ECOM */
+
+  select {
+    width:100%;
+  }
+
+  .widget.ecomproductslist label {
+    display:block;
+  }
+
+  .ecom-productlist-price {
+    margin:0px auto;
+    display:table;
+  }
+
+}
+
+/* ===============================
+   IPHONE WIDTH
+   =============================== */
+
+@media only screen and (max-width: 480px) { 
+
+    footer.bk-footer {
+        padding: 2.5em 0 0;
+    }
+
+    footer.bk-footer h1, footer.bk-footer h2, footer.bk-footer h3, footer.bk-footer h4 {
+        padding-bottom: 20px;
+    }
+
+    footer.bk-footer .footer2 {
+        padding: 2em 0;
+        margin-top: 3em;
+    }
+
+    footer.bk-footer .footer2 .columns-two-right {
+        text-align: left;
+    }
+
+
+    /* FEATURE IMAGES */
+
+    .blue-block{
+        height: 194px;
+        margin-top: 0;
+    }
+
+    .color-block h2 {
+        font-size: bkscale(@font-swatch8-font-size,0.4);
+        line-height: bkscale(@font-swatch8-line-height,0.7);
+    }
+
+    .feature-image-block1,
+    .feature-image-block2 {
+        width: 100%;
+    }
+
+    .color-block{
+        height:158px;
+    }
+
+    .feature-image-block1{
+        margin-bottom:20px;
+    }
+
+    /* NAV */
+
+    .widget.extendednavigation ul li a:hover {
+        text-decoration: none;
+        border-bottom:0;
+        margin-bottom:0;
+        padding-bottom:0;
+    }
+
+    .widget.extendednavigation ul li, .widget.extendednavigation ul li.folder .text {
+      padding:0;
+    }
+
+        /* DEFAULT PAGE TYPE */
+
+   .bk-pt-default header.bk-header {
+     padding: 0;
+     padding: 10px;
+   }
+
+    .bk-pt-default .inner-bg {
+      border-top: none;
+    }
+
+
+    /* FEATURE */
+
+    .widget.feature .feature-bgimg {
+        height: 400px;
+    }
+
+    .widget.feature .content {
+        height: 400px;
+    }
+
+    .widget.feature .content .spare {
+      padding: 15px 0;
+    }
+
+    .widget.feature .feature-bgimg .content h2 {
+        font-size: bkscale(@font-swatch8-font-size,0.7);
+        line-height: bkscale(@font-swatch8-line-height,0.7);
+        padding: 0 5% 5px;
+    }
+
+    .widget.feature .feature-bgimg .content h3 {
+        font-size: bkscale(@font-swatch9-font-size,0.8);
+        line-height: bkscale(@font-swatch9-line-height,0.6);
+        padding: 0 5%;
+    }
+
+    .widget.feature .feature-btn {
+      width: 100%;
+      max-width: 100%;
+      margin-top:10px;
+    }
+
+    .widget.feature .feature-btn button {
+      font-size: bkscale(@font-swatch6-font-size,0.8);
+      line-height: bkscale(@font-swatch6-line-height,0.8);
+    }
+
+    .widget.profile .bk-profile-socialicons{
+      float:left;
+      margin-bottom:20px;
+    }
+
+
+    /* CLICK TO CALL */
+
+    .widget.clicktocall {
+        padding: 10px 0;
+    }
+
+    .widget.clicktocall a {
+    background-position: 20px center;
+    background-repeat: no-repeat;
+    padding: 10px 30px 10px 50px;
+    border: 1px solid @color-swatch6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    letter-spacing: 0.2px;
+    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
+    text-transform: uppercase;
+    font-family: @font-swatch7-font-family;
+    font-size: @font-swatch7-font-size;
+    font-weight:@font-swatch7-font-weight;
+    background-color: lighten(@font-swatch7-background-color, 5%);
+    color: @font-swatch7-color;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .widget.clicktocall a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: @color-swatch6;
+    }
+
+  .widget.clicktocall a.justifyleft {
+    text-align: left;
+  }
+
+  .widget.clicktocall a.justifycenter {
+    text-align: center;
+  }
+
+  .widget.clicktocall a.justifyright {
+    text-align: right;
+  }
+
+  .widget.clicktocall a.justifyfull {
+    text-align: justify;
+  }
+
+  .widget.clicktocall a.italic { 
+    font-style: italic;
+  }
+
+  .widget.clicktocall a.bold {
+    font-weight: bold;
+  }
+
+  .widget.clicktocall {
+    padding: 20px 0;
+    display:block;
+  }
+
+  /* SLIDESHOW */
+
+  .widget.responsiveslideshow .title {
+    padding-bottom:13px;
+  }
+
+  .widget.responsiveslideshow .description {
+    display:none;
+  }
+
+  .widget.responsiveslideshow .slideshow-image-list, .widget.responsiveslideshow .slideshow-widget {
+      height: 200px;
+  }
+
+  .widget.responsiveslideshow .slideshow-widget .btn-prev, .widget.responsiveslideshow .slideshow-widget .btn-next {
+    top: 40%;
+  }
+
+     /* GALLERY */
+
+    .widget.gallery li span.inner .title, .widget.gallery li span.inner .description {
+      max-height: 150px;
+    }
+
+    .widget.gallery ul.gallery-widget li
+    {
+      width: 50%;
+      padding-bottom: 50%;
+    }
+
+}
+
+@media only screen and (min-width: 1140px) {
+  .wrapper {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.clearfix {
+    *zoom: 1
+}
