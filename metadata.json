@@ -1,7 +1,7 @@
 {
 	"name":"Salsero",
-	"thumbnail":"salsero.png",
-	"screenshot":"salsero.png",
+	"thumbnail":"thumbnail.png",
+	"screenshot":"salsero-screenshot.jpg",
 	"templateType":"standard",
     "pageTypes":["home"],
     "tags": {
