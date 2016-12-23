@@ -923,17 +923,11 @@ div.twitter-profile-pic {
    CONTACT FORM WIDGET
    =============================== */
 
-.widget.contactform form {
-    display: block;
-    margin-bottom: 20px;
+.form-group {
+  margin-bottom: 1.5em;
 }
 
-.widget.contactform fieldset {
-    border: none;
-    padding: 0;
-}
-
-.widget.contactform fieldset label {
+label, .contactform label, .advancedcontactform label {
     width: 100%;
     float: left;
     font-family:@font-swatch5-font-family;
@@ -944,7 +938,9 @@ div.twitter-profile-pic {
     letter-spacing: @font-swatch5-letter-spacing;
 }
 
-.widget.contactform fieldset input {
+
+input, .contactform input, .contactform select, 
+.advancedcontactform input, .advancedcontactform select {
     height: 40px;
     width: 100%;
     background-color: @color-swatch1;
@@ -965,7 +961,8 @@ div.twitter-profile-pic {
     }
 }
 
-.widget.contactform fieldset textarea {
+.contactform textarea,
+.advancedcontactform textarea {
     height: 100px;
     width: 100%;
     background-color: @color-swatch1;
@@ -988,7 +985,8 @@ div.twitter-profile-pic {
     }
 }
 
-.widget.contactform fieldset button.btn {
+.contactform button, .contactform button.btn, 
+.advancedcontactform button, .advancedcontactform button.btn {
     padding: 8px 30px;
     margin: 0;
     border: 1px solid @color-swatch6;
@@ -1013,12 +1011,15 @@ div.twitter-profile-pic {
     text-decoration: none;
     text-transform: uppercase;
     &:hover {
-        background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-        background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-        background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-        background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-        background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-        cursor: pointer;
+      background-color: lighten(@color-swatch6,5%);
+      color: @font-swatch7-color;
+      cursor: pointer;
+      background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+      background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+      background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+      background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+      background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
+      cursor: pointer;
     }
     @media @tablet {
         width: 40%;
@@ -1027,12 +1028,7 @@ div.twitter-profile-pic {
         width: 100%;
     }
 }
-  
-.widget.contactform fieldset button.btn:hover {
-  background-color: lighten(@color-swatch6,5%);
-  color: @font-swatch7-color;
-  cursor: pointer;
-}
+
 
 /* ===============================
    REDIRECT WIDGET
