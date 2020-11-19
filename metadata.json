@@ -3,6 +3,7 @@
 	"thumbnail":"thumbnail.png",
 	"screenshot":"salsero-screenshot.jpg",
 	"templateType":"standard",
+    "versionTenCompatible": 1,
     "pageTypes":["home"],
     "tags": {
     "en": ["colorful", "bright", "clean", "vintage", "business", "colourful", "classic", "pattern", "texture", "background", "fashion", "retail", "travel", "serif"],

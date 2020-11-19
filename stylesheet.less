@@ -8,7 +8,7 @@
    TEMPLATE CSS
    =============================== */
 
-   body {
+body {
     background-color: @color-swatch3;
     margin: 0;
     padding: 0;
@@ -40,6 +40,34 @@ p {
     padding: 0 0 10px;
 }
 
+h1, h2, h3, h4, h5, h6, [class*="contentgroup__h"] {
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
+}
+
+p, ul, ol, li, .contentgroup__body, .widget.clicktocall a, blockquote {
+    .style--light & {
+        color: fade(@contrast--light, 90%);
+    }
+
+    .style--accent & {
+        color: fade(@contrast--accent, 90%);
+    }
+
+    .style--dark & {
+        color: fade(@contrast--dark, 90%);
+    }
+}
+
 blockquote {
     margin: 30px 0;
     quotes: "\201C""\201D""\2018""\2019";
@@ -50,6 +78,18 @@ blockquote {
     color: lighten(@color-swatch4,20%);
     padding: 18px;
     margin-left: 30px;
+
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
 blockquote:before {
@@ -61,16 +101,20 @@ blockquote:before {
     margin-right: .1em;
     vertical-align: -.4em;
     margin-left: -10px;
+
+    .style--light & {
+        color: @color--accent;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
-/* blockquote p {
-    display: inline;
-    font-family:@font-swatch5-font-family;
-    font-size:bkscale(@font-swatch5-font-size,1.1);
-    font-weight:@font-swatch5-font-weight;
-    line-height:@font-swatch5-line-height;
-    color: lighten(@color-swatch5,20%);
-} */
 
 /* ===============================
    CUSTOM CSS
@@ -924,8 +968,20 @@ footer.bk-footer h4 {
     display:block;
     border: 0;
     border-width: 0;
-    border-bottom:5px solid @color-swatch7;
+    border-bottom: 5px solid @color-swatch7;
     max-width: 100%;
+
+    .style--light & {
+        border-color: @color--acccent;
+    }
+
+    .style--accent & {
+        border-color: @contrast--accent;
+    }
+
+    .style--dark & {
+        border-color: @color--accent;
+    }
 }
 
 .widget.image span.image-title {
@@ -937,6 +993,18 @@ footer.bk-footer h4 {
     color:  @font-swatch4-color;
     line-height: @font-swatch4-line-height;
     text-decoration: none;
+
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
 .widget.image a:hover {
@@ -956,15 +1024,32 @@ footer.bk-footer h4 {
     font-size: @font-swatch5-font-size;
     line-height: @font-swatch5-line-height;
     color: @font-swatch5-color;
+
+    .style--light & {
+        color: fade(@contrast--light, 90%);
+    }
+
+    .style--accent & {
+        color: fade(@contrast--accent, 90%);
+    }
+
+    .style--dark & {
+        color: fade(@contrast--dark, 90%);
+    }
 }
 
 /* ===============================
    BUTTONS CSS
    =============================== */
 
-.widget.button button {
-    padding: 10px 30px;
-    margin: 0 0 10px;
+.widget.button button,
+.contactform button.btn, 
+.widget.advancedcontactform button.button,
+.widget.signupform fieldset button.btn,
+.widget.ecomproductslist button.btn,
+.blog-post-more-link a,
+.blog-search-submit-button,
+a.contentgroup__link {
     border: 1px solid @color-swatch6;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -985,44 +1070,64 @@ footer.bk-footer h4 {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.2px;
+    padding: 8px 30px;
+    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
+
+    .style--light & {
+        background: linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
+
+    .style--accent & {
+        background: linear-gradient(to bottom, lighten(@color--dark, 10%), @color--dark);
+        border-color: @color--dark;
+        color: @contrast--dark;
+        text-shadow: 0 1px 1px darken(@color--dark, 10%);
+    }
+
+    .style--dark & {
+        background: linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
 }
 
-
-.widget.button button:hover {
+.widget.button button:hover,
+.contactform button.btn:hover, 
+.widget.advancedcontactform button.button:hover,
+.widget.signupform fieldset button.btn:hover,
+.blog-search-submit-button:hover,
+.blog-post-more-link a:hover,
+a.contentgroup__link {
     background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
     background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
     background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
     background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
     background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
     cursor: pointer;
+    text-decoration: none;
+
+    .style--light & {
+        background: linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+        color: @contrast--accent;
+    }
+
+    .style--accent & {
+        background: linear-gradient(to bottom, lighten(@color--dark, 3%), darken(@color--dark, 3%));
+        color: @contrast--dark;
+    }
+
+    .style--dark & {
+        background: linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+        color: @contrast--accent;
+    }
 }
 
-button.btn {
-    border: 1px solid @color-swatch6;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    background-color: @color-swatch6;
-    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-repeat: inherit;
-    background-size: cover;
-    background-position: inherit;
-    text-transform: uppercase;
-    letter-spacing: 0.2px;
-    
-}
-
-button.btn:hover {
-    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    cursor: pointer;
+.widget.button button {
+    margin: 0 0 10px;
 }
 
 .widget.button i {
@@ -1040,6 +1145,18 @@ button.btn:hover {
 hr.line {
    width: 100%;
    background-color: fade(@color-swatch5, 20%);
+
+   .style--light & {
+        background-color: fade(@contrast--light, 20%);
+    }
+
+    .style--accent & {
+        background-color: fade(@contrast--accent, 20%);
+    }
+
+    .style--dark & {
+        background-color: fade(@contrast--dark, 20%);
+    }
 }
 
 hr.line.align-left {
@@ -1098,6 +1215,11 @@ hr.line.align-right {
         -moz-transition: all 0.4s ease-out;
         -o-transition: all 0.4s ease-out;
         transition: all 0.4s ease-out;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         &:hover {
             opacity: 1;
         }
@@ -1157,7 +1279,21 @@ hr.line.align-right {
   background-position: 50% 7px;
   background-size: 28px;
   padding-top: 40px;
-  //margin-top: 20px;
+
+  .style--light & {
+      background-color: @color--accent;
+      color: @contrast--accent;
+  }
+
+  .style--accent & {
+      background-color: @color--dark;
+      color: @contrast--dark;
+  }
+
+  .style--dark & {
+      background-color: @color--accent;
+      color: @contrast--accent;
+  }
 }
 
 .twitter div.twitter-profile-pic a,
@@ -1168,18 +1304,54 @@ div.twitter-profile-pic {
 .widget.twitter p {
   font-size: 14px;
   line-height: 1.6em;
+
+    .style--light & {
+        color: fade(@contrast--light, 90%);
+    }
+
+    .style--accent & {
+        color: fade(@contrast--accent, 90%);
+    }
+
+    .style--dark & {
+        color: fade(@contrast--dark, 90%);
+    }
 }
 
 .widget.twitter a {
    color: @color-swatch4;
    text-decoration: none;
    padding-bottom: 4px;
+
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
 .widget.twitter span a {
   border-bottom: 0;
   font-size: 11px;
   color: @font-swatch4-color;
+
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
 .widget.twitter ul {
@@ -1187,6 +1359,19 @@ div.twitter-profile-pic {
     margin: 0;
     background-color: @color-swatch3;
     padding: 20px 0;
+
+    .style--light & {
+        background-color: @color--light;
+    }
+
+    .style--accent & {
+        background-color: @color--accent;
+    }
+
+    .style--dark & {
+        background-color: @color--dark;
+    }
+
     @media @mobile {
       padding: 10px 0;
     }
@@ -1198,10 +1383,18 @@ div.twitter-profile-pic {
     font-family: @font-swatch5-font-family;
     color: @font-swatch5-color;
     padding-bottom: 30px;
-}
 
-.widget.twitter ul li a {
-  //font-size: 16px;
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
 .widget.twitter ul li:last-child {
@@ -1221,10 +1414,23 @@ div.twitter-profile-pic {
   padding-bottom: 0;
 }
 
-.widget.twitter .twitter-content span.bk-full-name {
+.widget.twitter .twitter-content span.bk-full-name,
+.widget.twitter .twitter-content time {
     font-family: @font-swatch4-font-family;
     color: @font-swatch4-color;
     font-size: @font-swatch4-font-size;
+
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
 .widget.twitter .twitter-content span.bk-full-name {
@@ -1248,6 +1454,19 @@ label, .contactform label, .advancedcontactform label {
     line-height:@font-swatch5-line-height;
     color: @font-swatch5-color;
     letter-spacing: @font-swatch5-letter-spacing;
+    word-break: break-word;
+
+    .style--light & {
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        color: @contrast--accent;
+    }
+
+    .style--dark & {
+        color: @contrast--dark;
+    }
 }
 
 
@@ -1262,12 +1481,55 @@ input, .contactform input, .contactform select,
     text-indent: 10px;
     padding: 0;
     border: 1px solid darken(@color-swatch3, 10%);
+
+    .style--light & {
+        background-color: @color--light;
+        border-color: darken(@color--light, 10%);
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        background-color: @color--light;
+        border-color: darken(@color--accent, 10%);
+        color: @contrast--light;
+    }
+
+    .style--dark & {
+        background-color: @color--light;
+        border-color: lighten(@color--dark, 10%);
+        color: @contrast--light;
+    }
+
     &:hover {
         border: 1px solid darken(@color-swatch3, 20%);
+
+        .style--light & {
+            border-color: darken(@color--light, 20%);
+        }
+
+        .style--accent & {
+            border-color: darken(@color--accent, 20%);
+        }
+
+        .style--dark & {
+            border-color: lighten(@color--dark, 20%);
+        }
     }
     &:focus {
         outline: none;
         box-shadow: 0 0 3px darken(@color-swatch3,10%);
+
+        .style--light & {
+            border-color: darken(@color--light, 10%);
+        }
+
+        .style--accent & {
+            border-color: darken(@color--accent, 10%);
+        }
+
+        .style--dark & {
+            border-color: lighten(@color--dark, 10%);
+        }
     }
 }
 
@@ -1284,51 +1546,63 @@ input, .contactform input, .contactform select,
     resize: vertical;
     overflow: auto;
     border: 1px solid darken(@color-swatch3, 10%);
+
+
+    .style--light & {
+        background-color: @color--light;
+        border-color: darken(@color--light, 10%);
+        color: @contrast--light;
+    }
+
+    .style--accent & {
+        background-color: @color--light;
+        border-color: darken(@color--accent, 10%);
+        color: @contrast--light;
+    }
+
+    .style--dark & {
+        background-color: @color--light;
+        border-color: lighten(@color--dark, 10%);
+        color: @contrast--light;
+    }
+
     &:hover {
         border: 1px solid darken(@color-swatch3, 20%);
+
+        .style--light & {
+            border-color: darken(@color--light, 20%);
+        }
+
+        .style--accent & {
+            border-color: darken(@color--accent, 20%);
+        }
+
+        .style--dark & {
+            border-color: lighten(@color--dark, 20%);
+        }
     }
     &:focus {
         outline: none;
         box-shadow: 0 0 3px darken(@color-swatch3,10%);
+
+        .style--light & {
+            border-color: darken(@color--light, 10%);
+        }
+
+        .style--accent & {
+            border-color: darken(@color--accent, 10%);
+        }
+
+        .style--dark & {
+            border-color: lighten(@color--dark, 10%);
+        }
     }
 }
 
 .contactform button, .contactform button.btn, 
-.advancedcontactform button, .advancedcontactform button.btn {
-    padding: 8px 30px;
-    margin: 0;
-    border: 1px solid @color-swatch6;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    font-family: @font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    font-weight:@font-swatch7-font-weight;
-    letter-spacing: 0.2px;
-    background-color: @color-swatch6;
-    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-repeat: inherit;
-    background-size: cover;
-    background-position: inherit;
-    color: @font-swatch7-color;
-    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
-    text-decoration: none;
-    text-transform: uppercase;
-    &:hover {
-      background-color: lighten(@color-swatch6,5%);
-      color: @font-swatch7-color;
-      cursor: pointer;
-      background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-      background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-      background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-      background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-      background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-      cursor: pointer;
-    }
+.advancedcontactform button, .advancedcontactform button.btn,
+.signupform button.btn,
+.blog-search-submit-button {
     @media @tablet {
         width: 40%;
     }
@@ -1365,9 +1639,22 @@ input, .contactform input, .contactform select,
 		
 		.form__link {
 			font-family:@font-swatch5-font-family;
-            font-size: @font-swatch5-font-size;
+      font-size: @font-swatch5-font-size;
 			font-weight:@font-swatch5-font-weight;
 			letter-spacing: @font-swatch5-letter-spacing;
+      word-break: break-word;
+
+      .style--light & {
+          color: @contrast--light;
+      }
+
+      .style--accent & {
+          color: @contrast--accent;
+      }
+
+      .style--dark & {
+          color: @contrast--dark;
+      }
 		}
 	}
 }
@@ -1428,10 +1715,59 @@ input, .contactform input, .contactform select,
     color: @font-swatch7-color;
     text-decoration: none;
     cursor: pointer;
+
+    .style--light &,
+    .style--accent &,
+    .style--dark & {
+        background-position: 19px center, 100%;
+        background-size: 20px, cover;
+    }
+
+    .style--light & {
+        background-image: image('/images/paypal.png'), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
+
+    .style--accent & {
+        background-image: image('/images/paypal.png'), linear-gradient(to bottom, lighten(@color--dark, 10%), @color--dark);
+        border-color: @color--dark;
+        color: @contrast--dark;
+        text-shadow: 0 1px 1px darken(@color--dark, 10%);
+    }
+
+    .style--dark & {
+        background-image: image('/images/paypal.png'), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
 }
 
 .widget.paypalbuynow .widget.button.paypal:hover {
-  background-color: @color-swatch6;
+    background-color: @color-swatch6;
+
+    .style--light & {
+        background-image: image('/images/paypal.png'), linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
+
+    .style--accent & {
+        background-image: image('/images/paypal.png'), linear-gradient(to bottom, lighten(@color--dark, 3%), darken(@color--dark, 3%));
+        border-color: @color--dark;
+        color: @contrast--dark;
+        text-shadow: 0 1px 1px darken(@color--dark, 10%);
+    }
+
+    .style--dark & {
+        background-image: image('/images/paypal.png'), linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
 }
 
 /* ===============================
@@ -1459,20 +1795,105 @@ input, .contactform input, .contactform select,
     color: @font-swatch7-color;
     text-decoration: none;
     cursor: pointer;
+
+    .style--light &,
+    .style--accent &,
+    .style--dark & {
+        background-position: 19px center, 100%;
+        background-size: 20px, cover;
+    }
+
+    .style--light & {
+        background-image: image('/images/dropbox-icon.png'), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
+
+    .style--accent & {
+        background-image: image('/images/dropbox-icon.png'), linear-gradient(to bottom, lighten(@color--dark, 10%), @color--dark);
+        border-color: @color--dark;
+        color: @contrast--dark;
+        text-shadow: 0 1px 1px darken(@color--dark, 10%);
+    }
+
+    .style--dark & {
+        background-image: image('/images/dropbox-icon.png'), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
 }
 
 .widget.dropbox button:hover {
   background-color: @color-swatch6;
   cursor: pointer;
+
+  .style--light &,
+  .style--accent &,
+  .style--dark & {
+      background-position: 19px center, 100%;
+      background-size: 20px, cover;
+  }
+
+  .style--light & {
+      background-image: image('/images/dropbox-icon.png'), linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+      color: @contrast--accent;
+  }
+
+  .style--accent & {
+      background-image: image('/images/dropbox-icon.png'), linear-gradient(to bottom, lighten(@color--dark, 3%), darken(@color--dark, 3%));
+      color: @contrast--dark;
+  }
+
+  .style--dark & {
+      background-image: image('/images/dropbox-icon.png'), linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+      color: @contrast--accent;
+  }
+}
+
+
+/* ===============================
+   DOWNLOAD BUTTON
+   =============================== */
+
+.widget.filedownload button,
+.widget.filedownload button:hover {
+  padding: 10px 30px 10px 50px;
+
+    .style--light &,
+    .style--accent &,
+    .style--dark & {
+        background-position: 19px center, 100%;
+        background-size: 20px, cover;
+    }
+
+    .style--light & {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCgUPBh938LT/AAAA7ElEQVQ4y92RMUpDQRRFz4QEhYAQbVxB0sYViLiR7MBeC7+NWKfJElK6ASUEWwm4Ayu1UhQE+RKP1ZfwM/Mntad6zLuHeW8mEMEdWsBP+GATnFgxWe+2IsZBpGoUGvkPQrsq7HHJPgD9v27fawBeOA1vNdOhTQwjl1kk40VivoSSiieUpnhEycVrSiTedosjtldO7kIhnAMXobDH4UrvixnOazM/uAeOHIG7LmrdOZFXWTgAcLAWV4NGF7kFjuMr5nj1zGf13ivVvHADTtUTO74rllnlUdXSJ7XEscusUrF0HMAunQ3+E+A7fP4CvASp3Tm+T64AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTYtMTAtMDVUMTU6MDY6MzErMDI6MDAYeQXhAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE2LTEwLTA1VDE1OjA2OjMxKzAyOjAwaSS9XQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII='), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
+
+    .style--accent & {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCgUPBh938LT/AAAA7ElEQVQ4y92RMUpDQRRFz4QEhYAQbVxB0sYViLiR7MBeC7+NWKfJElK6ASUEWwm4Ayu1UhQE+RKP1ZfwM/Mntad6zLuHeW8mEMEdWsBP+GATnFgxWe+2IsZBpGoUGvkPQrsq7HHJPgD9v27fawBeOA1vNdOhTQwjl1kk40VivoSSiieUpnhEycVrSiTedosjtldO7kIhnAMXobDH4UrvixnOazM/uAeOHIG7LmrdOZFXWTgAcLAWV4NGF7kFjuMr5nj1zGf13ivVvHADTtUTO74rllnlUdXSJ7XEscusUrF0HMAunQ3+E+A7fP4CvASp3Tm+T64AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTYtMTAtMDVUMTU6MDY6MzErMDI6MDAYeQXhAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE2LTEwLTA1VDE1OjA2OjMxKzAyOjAwaSS9XQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII='), linear-gradient(to bottom, lighten(@color--dark, 10%), @color--dark);
+        border-color: @color--dark;
+        color: @contrast--dark;
+        text-shadow: 0 1px 1px darken(@color--dark, 10%);
+    }
+
+    .style--dark & {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCgUPBh938LT/AAAA7ElEQVQ4y92RMUpDQRRFz4QEhYAQbVxB0sYViLiR7MBeC7+NWKfJElK6ASUEWwm4Ayu1UhQE+RKP1ZfwM/Mntad6zLuHeW8mEMEdWsBP+GATnFgxWe+2IsZBpGoUGvkPQrsq7HHJPgD9v27fawBeOA1vNdOhTQwjl1kk40VivoSSiieUpnhEycVrSiTedosjtldO7kIhnAMXobDH4UrvixnOazM/uAeOHIG7LmrdOZFXWTgAcLAWV4NGF7kFjuMr5nj1zGf13ivVvHADTtUTO74rllnlUdXSJ7XEscusUrF0HMAunQ3+E+A7fP4CvASp3Tm+T64AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTYtMTAtMDVUMTU6MDY6MzErMDI6MDAYeQXhAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE2LTEwLTA1VDE1OjA2OjMxKzAyOjAwaSS9XQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII='), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
 }
 
 
 /* ===============================
    TWEET THIS
    =============================== */
-
-.widget.tweet .tweet {
-}
 
 .widget.tweet a {
     background-repeat: no-repeat;
@@ -1494,11 +1915,54 @@ input, .contactform input, .contactform select,
     color: @font-swatch7-color;
     text-decoration: none;
     cursor: pointer;
+
+    .style--light &,
+    .style--accent &,
+    .style--dark & {
+        background-position: 18px, 100%;
+        background-size: 24px, cover;
+    }
+
+    .style--light & {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyODMuNDY1cHgiIGhlaWdodD0iMjgzLjQ2NHB4IiB2aWV3Qm94PSIwIDAgMjgzLjQ2NSAyODMuNDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyODMuNDY1IDI4My40NjQiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkZhY2Vib29rIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9IiNGRkZGRkYiIGQ9Ik04Mi43MzIsMTAwLjUzMmgyN1Y4OC4yODN2LTEydi0yLjAwMWMwLTExLjU1LDAuMjk4LTI5LjQsOC42OTgtNDAuNDQ5DQoJCWM4Ljg1LTExLjcwMiwyMS0xOS42NSw0MS45MDEtMTkuNjVjMzQuMDQ4LDAsNDguNCw0Ljg0OSw0OC40LDQuODQ5bC02Ljc1LDQwLjAwMWMwLDAtMTEuMjUtMy4yNTEtMjEuNzUtMy4yNTENCgkJcy0xOS45LDMuNzUtMTkuOSwxNC4yNXY0LjI1djE0LjAwMXYxMi4yNDloNDMuMDQ4bC0zLDM5LjA1aC00MC4wNDh2MTM1LjdoLTUwLjZ2LTEzNS43aC0yN1YxMDAuNTMyTDgyLjczMiwxMDAuNTMyeiIvPg0KPC9nPg0KPGcgaWQ9IlR3aXR0ZXIiPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNzAuMjMyLDY3LjUwOGMtOS4xNjEsNC4wNjMtMTkuMDA3LDYuODA5LTI5LjM0LDguMDQ0YzEwLjU0Ni02LjMyMiwxOC42NDYtMTYuMzMzLDIyLjQ2MS0yOC4yNjMNCgkJYy05Ljg3MSw1Ljg1NS0yMC44MDQsMTAuMTA2LTMyLjQ0LDEyLjM5NmMtOS4zMTgtOS45MjgtMjIuNTk1LTE2LjEzMS0zNy4yODgtMTYuMTMxYy0yOC4yMTIsMC01MS4wODUsMjIuODcyLTUxLjA4NSw1MS4wODQNCgkJYzAsNC4wMDMsMC40NTEsNy45MDMsMS4zMjIsMTEuNjQyYy00Mi40NTYtMi4xMzEtODAuMS0yMi40NjgtMTA1LjI5NS01My4zNzZjLTQuMzk3LDcuNTQ1LTYuOTE3LDE2LjMyLTYuOTE3LDI1LjY4Mw0KCQljMCwxNy43MjQsOS4wMTgsMzMuMzU5LDIyLjcyNiw0Mi41MjFjLTguMzc0LTAuMjY2LTE2LjI1MS0yLjU2NC0yMy4xMzgtNi4zOTFjLTAuMDA1LDAuMjE0LTAuMDA1LDAuNDI3LTAuMDA1LDAuNjQzDQoJCWMwLDI0Ljc1MSwxNy42MDksNDUuMzk4LDQwLjk3OCw1MC4wOTJjLTQuMjg2LDEuMTY3LTguNzk5LDEuNzkyLTEzLjQ1OCwxLjc5MmMtMy4yOTIsMC02LjQ5Mi0wLjMyMS05LjYxMi0wLjkxNw0KCQljNi41MDEsMjAuMjk1LDI1LjM2OCwzNS4wNjYsNDcuNzIxLDM1LjQ3OGMtMTcuNDgzLDEzLjcwMi0zOS41MSwyMS44NjgtNjMuNDQ1LDIxLjg2OGMtNC4xMjQsMC04LjE4OS0wLjI0MS0xMi4xODYtMC43MTUNCgkJYzIyLjYwNywxNC40OTQsNDkuNDYsMjIuOTU0LDc4LjMwOSwyMi45NTRjOTMuOTY1LDAsMTQ1LjM0OS03Ny44NDQsMTQ1LjM0OS0xNDUuMzUxYzAtMi4yMTQtMC4wNS00LjQxNy0wLjE0OC02LjYwOQ0KCQlDMjU0LjcyNCw4Ni43NSwyNjMuMzg0LDc3Ljc1MiwyNzAuMjMyLDY3LjUwOHoiLz4NCjwvZz4NCjwvc3ZnPg0K), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
+
+    .style--accent & {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyODMuNDY1cHgiIGhlaWdodD0iMjgzLjQ2NHB4IiB2aWV3Qm94PSIwIDAgMjgzLjQ2NSAyODMuNDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyODMuNDY1IDI4My40NjQiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkZhY2Vib29rIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9IiNGRkZGRkYiIGQ9Ik04Mi43MzIsMTAwLjUzMmgyN1Y4OC4yODN2LTEydi0yLjAwMWMwLTExLjU1LDAuMjk4LTI5LjQsOC42OTgtNDAuNDQ5DQoJCWM4Ljg1LTExLjcwMiwyMS0xOS42NSw0MS45MDEtMTkuNjVjMzQuMDQ4LDAsNDguNCw0Ljg0OSw0OC40LDQuODQ5bC02Ljc1LDQwLjAwMWMwLDAtMTEuMjUtMy4yNTEtMjEuNzUtMy4yNTENCgkJcy0xOS45LDMuNzUtMTkuOSwxNC4yNXY0LjI1djE0LjAwMXYxMi4yNDloNDMuMDQ4bC0zLDM5LjA1aC00MC4wNDh2MTM1LjdoLTUwLjZ2LTEzNS43aC0yN1YxMDAuNTMyTDgyLjczMiwxMDAuNTMyeiIvPg0KPC9nPg0KPGcgaWQ9IlR3aXR0ZXIiPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNzAuMjMyLDY3LjUwOGMtOS4xNjEsNC4wNjMtMTkuMDA3LDYuODA5LTI5LjM0LDguMDQ0YzEwLjU0Ni02LjMyMiwxOC42NDYtMTYuMzMzLDIyLjQ2MS0yOC4yNjMNCgkJYy05Ljg3MSw1Ljg1NS0yMC44MDQsMTAuMTA2LTMyLjQ0LDEyLjM5NmMtOS4zMTgtOS45MjgtMjIuNTk1LTE2LjEzMS0zNy4yODgtMTYuMTMxYy0yOC4yMTIsMC01MS4wODUsMjIuODcyLTUxLjA4NSw1MS4wODQNCgkJYzAsNC4wMDMsMC40NTEsNy45MDMsMS4zMjIsMTEuNjQyYy00Mi40NTYtMi4xMzEtODAuMS0yMi40NjgtMTA1LjI5NS01My4zNzZjLTQuMzk3LDcuNTQ1LTYuOTE3LDE2LjMyLTYuOTE3LDI1LjY4Mw0KCQljMCwxNy43MjQsOS4wMTgsMzMuMzU5LDIyLjcyNiw0Mi41MjFjLTguMzc0LTAuMjY2LTE2LjI1MS0yLjU2NC0yMy4xMzgtNi4zOTFjLTAuMDA1LDAuMjE0LTAuMDA1LDAuNDI3LTAuMDA1LDAuNjQzDQoJCWMwLDI0Ljc1MSwxNy42MDksNDUuMzk4LDQwLjk3OCw1MC4wOTJjLTQuMjg2LDEuMTY3LTguNzk5LDEuNzkyLTEzLjQ1OCwxLjc5MmMtMy4yOTIsMC02LjQ5Mi0wLjMyMS05LjYxMi0wLjkxNw0KCQljNi41MDEsMjAuMjk1LDI1LjM2OCwzNS4wNjYsNDcuNzIxLDM1LjQ3OGMtMTcuNDgzLDEzLjcwMi0zOS41MSwyMS44NjgtNjMuNDQ1LDIxLjg2OGMtNC4xMjQsMC04LjE4OS0wLjI0MS0xMi4xODYtMC43MTUNCgkJYzIyLjYwNywxNC40OTQsNDkuNDYsMjIuOTU0LDc4LjMwOSwyMi45NTRjOTMuOTY1LDAsMTQ1LjM0OS03Ny44NDQsMTQ1LjM0OS0xNDUuMzUxYzAtMi4yMTQtMC4wNS00LjQxNy0wLjE0OC02LjYwOQ0KCQlDMjU0LjcyNCw4Ni43NSwyNjMuMzg0LDc3Ljc1MiwyNzAuMjMyLDY3LjUwOHoiLz4NCjwvZz4NCjwvc3ZnPg0K), linear-gradient(to bottom, lighten(@color--dark, 10%), @color--dark);
+        border-color: @color--dark;
+        color: @contrast--dark;
+        text-shadow: 0 1px 1px darken(@color--dark, 10%);
+    }
+
+    .style--dark & {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyODMuNDY1cHgiIGhlaWdodD0iMjgzLjQ2NHB4IiB2aWV3Qm94PSIwIDAgMjgzLjQ2NSAyODMuNDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyODMuNDY1IDI4My40NjQiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkZhY2Vib29rIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9IiNGRkZGRkYiIGQ9Ik04Mi43MzIsMTAwLjUzMmgyN1Y4OC4yODN2LTEydi0yLjAwMWMwLTExLjU1LDAuMjk4LTI5LjQsOC42OTgtNDAuNDQ5DQoJCWM4Ljg1LTExLjcwMiwyMS0xOS42NSw0MS45MDEtMTkuNjVjMzQuMDQ4LDAsNDguNCw0Ljg0OSw0OC40LDQuODQ5bC02Ljc1LDQwLjAwMWMwLDAtMTEuMjUtMy4yNTEtMjEuNzUtMy4yNTENCgkJcy0xOS45LDMuNzUtMTkuOSwxNC4yNXY0LjI1djE0LjAwMXYxMi4yNDloNDMuMDQ4bC0zLDM5LjA1aC00MC4wNDh2MTM1LjdoLTUwLjZ2LTEzNS43aC0yN1YxMDAuNTMyTDgyLjczMiwxMDAuNTMyeiIvPg0KPC9nPg0KPGcgaWQ9IlR3aXR0ZXIiPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNzAuMjMyLDY3LjUwOGMtOS4xNjEsNC4wNjMtMTkuMDA3LDYuODA5LTI5LjM0LDguMDQ0YzEwLjU0Ni02LjMyMiwxOC42NDYtMTYuMzMzLDIyLjQ2MS0yOC4yNjMNCgkJYy05Ljg3MSw1Ljg1NS0yMC44MDQsMTAuMTA2LTMyLjQ0LDEyLjM5NmMtOS4zMTgtOS45MjgtMjIuNTk1LTE2LjEzMS0zNy4yODgtMTYuMTMxYy0yOC4yMTIsMC01MS4wODUsMjIuODcyLTUxLjA4NSw1MS4wODQNCgkJYzAsNC4wMDMsMC40NTEsNy45MDMsMS4zMjIsMTEuNjQyYy00Mi40NTYtMi4xMzEtODAuMS0yMi40NjgtMTA1LjI5NS01My4zNzZjLTQuMzk3LDcuNTQ1LTYuOTE3LDE2LjMyLTYuOTE3LDI1LjY4Mw0KCQljMCwxNy43MjQsOS4wMTgsMzMuMzU5LDIyLjcyNiw0Mi41MjFjLTguMzc0LTAuMjY2LTE2LjI1MS0yLjU2NC0yMy4xMzgtNi4zOTFjLTAuMDA1LDAuMjE0LTAuMDA1LDAuNDI3LTAuMDA1LDAuNjQzDQoJCWMwLDI0Ljc1MSwxNy42MDksNDUuMzk4LDQwLjk3OCw1MC4wOTJjLTQuMjg2LDEuMTY3LTguNzk5LDEuNzkyLTEzLjQ1OCwxLjc5MmMtMy4yOTIsMC02LjQ5Mi0wLjMyMS05LjYxMi0wLjkxNw0KCQljNi41MDEsMjAuMjk1LDI1LjM2OCwzNS4wNjYsNDcuNzIxLDM1LjQ3OGMtMTcuNDgzLDEzLjcwMi0zOS41MSwyMS44NjgtNjMuNDQ1LDIxLjg2OGMtNC4xMjQsMC04LjE4OS0wLjI0MS0xMi4xODYtMC43MTUNCgkJYzIyLjYwNywxNC40OTQsNDkuNDYsMjIuOTU0LDc4LjMwOSwyMi45NTRjOTMuOTY1LDAsMTQ1LjM0OS03Ny44NDQsMTQ1LjM0OS0xNDUuMzUxYzAtMi4yMTQtMC4wNS00LjQxNy0wLjE0OC02LjYwOQ0KCQlDMjU0LjcyNCw4Ni43NSwyNjMuMzg0LDc3Ljc1MiwyNzAuMjMyLDY3LjUwOHoiLz4NCjwvZz4NCjwvc3ZnPg0K), linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
+        border-color: @color--accent;
+        color: @contrast--accent;
+        text-shadow: 0 1px 1px darken(@color--accent, 10%);
+    }
 }
 
 .widget.tweet a:hover, .tweet a:active {
   cursor: pointer;
   background-color: @color-swatch6;
+
+  .style--light & {
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyODMuNDY1cHgiIGhlaWdodD0iMjgzLjQ2NHB4IiB2aWV3Qm94PSIwIDAgMjgzLjQ2NSAyODMuNDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyODMuNDY1IDI4My40NjQiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkZhY2Vib29rIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9IiNGRkZGRkYiIGQ9Ik04Mi43MzIsMTAwLjUzMmgyN1Y4OC4yODN2LTEydi0yLjAwMWMwLTExLjU1LDAuMjk4LTI5LjQsOC42OTgtNDAuNDQ5DQoJCWM4Ljg1LTExLjcwMiwyMS0xOS42NSw0MS45MDEtMTkuNjVjMzQuMDQ4LDAsNDguNCw0Ljg0OSw0OC40LDQuODQ5bC02Ljc1LDQwLjAwMWMwLDAtMTEuMjUtMy4yNTEtMjEuNzUtMy4yNTENCgkJcy0xOS45LDMuNzUtMTkuOSwxNC4yNXY0LjI1djE0LjAwMXYxMi4yNDloNDMuMDQ4bC0zLDM5LjA1aC00MC4wNDh2MTM1LjdoLTUwLjZ2LTEzNS43aC0yN1YxMDAuNTMyTDgyLjczMiwxMDAuNTMyeiIvPg0KPC9nPg0KPGcgaWQ9IlR3aXR0ZXIiPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNzAuMjMyLDY3LjUwOGMtOS4xNjEsNC4wNjMtMTkuMDA3LDYuODA5LTI5LjM0LDguMDQ0YzEwLjU0Ni02LjMyMiwxOC42NDYtMTYuMzMzLDIyLjQ2MS0yOC4yNjMNCgkJYy05Ljg3MSw1Ljg1NS0yMC44MDQsMTAuMTA2LTMyLjQ0LDEyLjM5NmMtOS4zMTgtOS45MjgtMjIuNTk1LTE2LjEzMS0zNy4yODgtMTYuMTMxYy0yOC4yMTIsMC01MS4wODUsMjIuODcyLTUxLjA4NSw1MS4wODQNCgkJYzAsNC4wMDMsMC40NTEsNy45MDMsMS4zMjIsMTEuNjQyYy00Mi40NTYtMi4xMzEtODAuMS0yMi40NjgtMTA1LjI5NS01My4zNzZjLTQuMzk3LDcuNTQ1LTYuOTE3LDE2LjMyLTYuOTE3LDI1LjY4Mw0KCQljMCwxNy43MjQsOS4wMTgsMzMuMzU5LDIyLjcyNiw0Mi41MjFjLTguMzc0LTAuMjY2LTE2LjI1MS0yLjU2NC0yMy4xMzgtNi4zOTFjLTAuMDA1LDAuMjE0LTAuMDA1LDAuNDI3LTAuMDA1LDAuNjQzDQoJCWMwLDI0Ljc1MSwxNy42MDksNDUuMzk4LDQwLjk3OCw1MC4wOTJjLTQuMjg2LDEuMTY3LTguNzk5LDEuNzkyLTEzLjQ1OCwxLjc5MmMtMy4yOTIsMC02LjQ5Mi0wLjMyMS05LjYxMi0wLjkxNw0KCQljNi41MDEsMjAuMjk1LDI1LjM2OCwzNS4wNjYsNDcuNzIxLDM1LjQ3OGMtMTcuNDgzLDEzLjcwMi0zOS41MSwyMS44NjgtNjMuNDQ1LDIxLjg2OGMtNC4xMjQsMC04LjE4OS0wLjI0MS0xMi4xODYtMC43MTUNCgkJYzIyLjYwNywxNC40OTQsNDkuNDYsMjIuOTU0LDc4LjMwOSwyMi45NTRjOTMuOTY1LDAsMTQ1LjM0OS03Ny44NDQsMTQ1LjM0OS0xNDUuMzUxYzAtMi4yMTQtMC4wNS00LjQxNy0wLjE0OC02LjYwOQ0KCQlDMjU0LjcyNCw4Ni43NSwyNjMuMzg0LDc3Ljc1MiwyNzAuMjMyLDY3LjUwOHoiLz4NCjwvZz4NCjwvc3ZnPg0K), linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+      color: @contrast--accent;
+  }
+
+  .style--accent & {
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyODMuNDY1cHgiIGhlaWdodD0iMjgzLjQ2NHB4IiB2aWV3Qm94PSIwIDAgMjgzLjQ2NSAyODMuNDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyODMuNDY1IDI4My40NjQiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkZhY2Vib29rIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9IiNGRkZGRkYiIGQ9Ik04Mi43MzIsMTAwLjUzMmgyN1Y4OC4yODN2LTEydi0yLjAwMWMwLTExLjU1LDAuMjk4LTI5LjQsOC42OTgtNDAuNDQ5DQoJCWM4Ljg1LTExLjcwMiwyMS0xOS42NSw0MS45MDEtMTkuNjVjMzQuMDQ4LDAsNDguNCw0Ljg0OSw0OC40LDQuODQ5bC02Ljc1LDQwLjAwMWMwLDAtMTEuMjUtMy4yNTEtMjEuNzUtMy4yNTENCgkJcy0xOS45LDMuNzUtMTkuOSwxNC4yNXY0LjI1djE0LjAwMXYxMi4yNDloNDMuMDQ4bC0zLDM5LjA1aC00MC4wNDh2MTM1LjdoLTUwLjZ2LTEzNS43aC0yN1YxMDAuNTMyTDgyLjczMiwxMDAuNTMyeiIvPg0KPC9nPg0KPGcgaWQ9IlR3aXR0ZXIiPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNzAuMjMyLDY3LjUwOGMtOS4xNjEsNC4wNjMtMTkuMDA3LDYuODA5LTI5LjM0LDguMDQ0YzEwLjU0Ni02LjMyMiwxOC42NDYtMTYuMzMzLDIyLjQ2MS0yOC4yNjMNCgkJYy05Ljg3MSw1Ljg1NS0yMC44MDQsMTAuMTA2LTMyLjQ0LDEyLjM5NmMtOS4zMTgtOS45MjgtMjIuNTk1LTE2LjEzMS0zNy4yODgtMTYuMTMxYy0yOC4yMTIsMC01MS4wODUsMjIuODcyLTUxLjA4NSw1MS4wODQNCgkJYzAsNC4wMDMsMC40NTEsNy45MDMsMS4zMjIsMTEuNjQyYy00Mi40NTYtMi4xMzEtODAuMS0yMi40NjgtMTA1LjI5NS01My4zNzZjLTQuMzk3LDcuNTQ1LTYuOTE3LDE2LjMyLTYuOTE3LDI1LjY4Mw0KCQljMCwxNy43MjQsOS4wMTgsMzMuMzU5LDIyLjcyNiw0Mi41MjFjLTguMzc0LTAuMjY2LTE2LjI1MS0yLjU2NC0yMy4xMzgtNi4zOTFjLTAuMDA1LDAuMjE0LTAuMDA1LDAuNDI3LTAuMDA1LDAuNjQzDQoJCWMwLDI0Ljc1MSwxNy42MDksNDUuMzk4LDQwLjk3OCw1MC4wOTJjLTQuMjg2LDEuMTY3LTguNzk5LDEuNzkyLTEzLjQ1OCwxLjc5MmMtMy4yOTIsMC02LjQ5Mi0wLjMyMS05LjYxMi0wLjkxNw0KCQljNi41MDEsMjAuMjk1LDI1LjM2OCwzNS4wNjYsNDcuNzIxLDM1LjQ3OGMtMTcuNDgzLDEzLjcwMi0zOS41MSwyMS44NjgtNjMuNDQ1LDIxLjg2OGMtNC4xMjQsMC04LjE4OS0wLjI0MS0xMi4xODYtMC43MTUNCgkJYzIyLjYwNywxNC40OTQsNDkuNDYsMjIuOTU0LDc4LjMwOSwyMi45NTRjOTMuOTY1LDAsMTQ1LjM0OS03Ny44NDQsMTQ1LjM0OS0xNDUuMzUxYzAtMi4yMTQtMC4wNS00LjQxNy0wLjE0OC02LjYwOQ0KCQlDMjU0LjcyNCw4Ni43NSwyNjMuMzg0LDc3Ljc1MiwyNzAuMjMyLDY3LjUwOHoiLz4NCjwvZz4NCjwvc3ZnPg0K), linear-gradient(to bottom, lighten(@color--dark, 3%), darken(@color--dark, 3%));
+      color: @contrast--dark;
+  }
+
+  .style--dark & {
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyODMuNDY1cHgiIGhlaWdodD0iMjgzLjQ2NHB4IiB2aWV3Qm94PSIwIDAgMjgzLjQ2NSAyODMuNDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyODMuNDY1IDI4My40NjQiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGcgaWQ9IkZhY2Vib29rIiBkaXNwbGF5PSJub25lIj4NCgk8cGF0aCBkaXNwbGF5PSJpbmxpbmUiIGZpbGw9IiNGRkZGRkYiIGQ9Ik04Mi43MzIsMTAwLjUzMmgyN1Y4OC4yODN2LTEydi0yLjAwMWMwLTExLjU1LDAuMjk4LTI5LjQsOC42OTgtNDAuNDQ5DQoJCWM4Ljg1LTExLjcwMiwyMS0xOS42NSw0MS45MDEtMTkuNjVjMzQuMDQ4LDAsNDguNCw0Ljg0OSw0OC40LDQuODQ5bC02Ljc1LDQwLjAwMWMwLDAtMTEuMjUtMy4yNTEtMjEuNzUtMy4yNTENCgkJcy0xOS45LDMuNzUtMTkuOSwxNC4yNXY0LjI1djE0LjAwMXYxMi4yNDloNDMuMDQ4bC0zLDM5LjA1aC00MC4wNDh2MTM1LjdoLTUwLjZ2LTEzNS43aC0yN1YxMDAuNTMyTDgyLjczMiwxMDAuNTMyeiIvPg0KPC9nPg0KPGcgaWQ9IlR3aXR0ZXIiPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yNzAuMjMyLDY3LjUwOGMtOS4xNjEsNC4wNjMtMTkuMDA3LDYuODA5LTI5LjM0LDguMDQ0YzEwLjU0Ni02LjMyMiwxOC42NDYtMTYuMzMzLDIyLjQ2MS0yOC4yNjMNCgkJYy05Ljg3MSw1Ljg1NS0yMC44MDQsMTAuMTA2LTMyLjQ0LDEyLjM5NmMtOS4zMTgtOS45MjgtMjIuNTk1LTE2LjEzMS0zNy4yODgtMTYuMTMxYy0yOC4yMTIsMC01MS4wODUsMjIuODcyLTUxLjA4NSw1MS4wODQNCgkJYzAsNC4wMDMsMC40NTEsNy45MDMsMS4zMjIsMTEuNjQyYy00Mi40NTYtMi4xMzEtODAuMS0yMi40NjgtMTA1LjI5NS01My4zNzZjLTQuMzk3LDcuNTQ1LTYuOTE3LDE2LjMyLTYuOTE3LDI1LjY4Mw0KCQljMCwxNy43MjQsOS4wMTgsMzMuMzU5LDIyLjcyNiw0Mi41MjFjLTguMzc0LTAuMjY2LTE2LjI1MS0yLjU2NC0yMy4xMzgtNi4zOTFjLTAuMDA1LDAuMjE0LTAuMDA1LDAuNDI3LTAuMDA1LDAuNjQzDQoJCWMwLDI0Ljc1MSwxNy42MDksNDUuMzk4LDQwLjk3OCw1MC4wOTJjLTQuMjg2LDEuMTY3LTguNzk5LDEuNzkyLTEzLjQ1OCwxLjc5MmMtMy4yOTIsMC02LjQ5Mi0wLjMyMS05LjYxMi0wLjkxNw0KCQljNi41MDEsMjAuMjk1LDI1LjM2OCwzNS4wNjYsNDcuNzIxLDM1LjQ3OGMtMTcuNDgzLDEzLjcwMi0zOS41MSwyMS44NjgtNjMuNDQ1LDIxLjg2OGMtNC4xMjQsMC04LjE4OS0wLjI0MS0xMi4xODYtMC43MTUNCgkJYzIyLjYwNywxNC40OTQsNDkuNDYsMjIuOTU0LDc4LjMwOSwyMi45NTRjOTMuOTY1LDAsMTQ1LjM0OS03Ny44NDQsMTQ1LjM0OS0xNDUuMzUxYzAtMi4yMTQtMC4wNS00LjQxNy0wLjE0OC02LjYwOQ0KCQlDMjU0LjcyNCw4Ni43NSwyNjMuMzg0LDc3Ljc1MiwyNzAuMjMyLDY3LjUwOHoiLz4NCjwvZz4NCjwvc3ZnPg0K), linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+      color: @contrast--accent;
+  }
 }
 
 /* ==================================
@@ -1554,11 +2018,41 @@ input, .contactform input, .contactform select,
     background-position: center;
     overflow: hidden;
     text-indent: 9999px;
+
+    .style--light & {
+        background-color: @color--accent;
+        color: @contrast--accent;
+    }
+
+    .style--accent & {
+        background-color: @color--dark;
+        color: @contrast--dark;
+    }
+
+    .style--dark & {
+        background-color: @color--accent;
+        color: @contrast--accent;
+    }
 }
 
 .widget.socialicons span a:hover,
 .widget.profile .bk-profile-socialicons span a:hover {
     background-color: darken(@color-swatch7,10%);
+
+    .style--light & {
+        background-color: darken(@color--accent, 10%);
+        color: @contrast--accent;
+    }
+
+    .style--accent & {
+        background-color: darken(@color--dark, 10%);
+        color: @contrast--dark;
+    }
+
+    .style--dark & {
+        background-color: darken(@color--accent, 10%);
+        color: @contrast--accent;
+    }
 }
 
 .widget.profile span, .widget.profile a, .widget.profile p {
@@ -1869,8 +2363,19 @@ input, .contactform input, .contactform select,
         .blog-post-item {
             border-bottom: 1px dotted @color-swatch2;
             text-align: center;
-        }
 
+            .style--light & {
+                border-color: @color--accent;
+            }
+
+            .style--accent & {
+                border-color: @contrast--accent;
+            }
+
+            .style--dark & {
+                border-color: @color--accent;
+            }
+        }
     }
 }
 
@@ -1886,9 +2391,34 @@ input, .contactform input, .contactform select,
             color: @font-swatch2-color;
             letter-spacing: @font-swatch2-letter-spacing;
             text-decoration: none;
+
+            .style--light & {
+                color: @contrast--light;
+            }
+
+            .style--accent & {
+                color: @contrast--accent;
+            }
+
+            .style--dark & {
+                color: @contrast--dark;
+            }
+
             &:hover {
                 text-decoration: none;
                 border-bottom: 1px solid @font-swatch2-color;
+
+                .style--light & {
+                  border-color: @contrast--light;
+              }
+
+              .style--accent & {
+                  border-color: @contrast--accent;
+              }
+
+              .style--dark & {
+                  border-color: @contrast--dark;
+              }
             }
         }
     }
@@ -1913,21 +2443,6 @@ input, .contactform input, .contactform select,
     a {
         text-transform: uppercase;
         padding: 8px 20px;
-        color: @font-swatch7-color;
-        background-color: @font-swatch7-background-color;
-        &:hover {
-            text-decoration: none;
-            background-color: @font-swatch7-background-color-hover;
-        }
-    }
-}
-
-/* BLOG SEARCH */
-.blogsearch {
-    form {
-        button {
-          //padding: 10px 30px;
-        }
     }
 }
 
@@ -1950,6 +2465,34 @@ input, .contactform input, .contactform select,
 /* ===============================
    Ecom
    =============================== */
+
+.widget.ecomproductslist #productlist-search {
+  border-radius: 3px;
+  height: 48px;
+  width: auto;
+}
+
+.widget.ecomproductslist .ecom-productslist-image-wrap,
+.widget.ecomfeaturedproducts .ecom-featuredproducts-wrap .ecom-featuredproducts-product .ecom-featuredproducts-image-wrap {
+  background-color: transparent;
+}
+
+.product-category-items a {
+    .style--light & {
+        color: @contrast--light;
+    }
+    .style--accent & {
+        color: @contrast--accent;
+    }
+    .style--dark & {
+        color: @contrast--dark;
+    }
+}
+
+.widget.ecomproductslist .productlist-search button.btn {
+  font-size: 13px;
+  padding: 11px 16px;
+}
 
 .widget.ecomproduct .ecom-product .ecom-product-info .ecom-product-variation select {
     -webkit-appearance: none;
@@ -2340,9 +2883,34 @@ h2.ecom-productslist-title, h2.ecom-featuredproducts-title {
             -webkit-border-radius: 50%;
             -moz-border-radius: 50%;
             border-radius: 50%;
+
+            .style--light & {
+                background-color: darken(@color--light, 10%);
+            }
+
+            .style--accent & {
+                background-color: darken(@color--accent, 10%);
+            }
+
+            .style--dark & {
+                background-color: lighten(@color--dark, 10%);
+            }
+
             &.selected {
                 background-color: @color-swatch5;
                 border: 0;
+
+                .style--light & {
+                    background-color: @color--accent;
+                }
+
+                .style--accent & {
+                    background-color: @contrast--accent;
+                }
+
+                .style--dark & {
+                    background-color: @contrast--dark;
+                }
             }
         }
     }
@@ -2530,7 +3098,6 @@ footer.bk-footer .widget.profile .twitter span, .widget.profile .twitter span a 
 
 .widget.profile fieldset button.btn {
     padding: 8px 30px 7px 30px;
-    //margin-left: 5px;
     border: 1px solid @color-swatch6;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -2659,46 +3226,16 @@ footer.bk-footer .widget.profile .twitter span, .widget.profile .twitter span a 
 }
 
 .widget.signupform fieldset button.btn, .blog-search-submit-button {
+    padding: 7px 4px!important;
+    text-align: center;
     width: 20%;
-    padding: 9px 30px;
-	//margin: 6px 6px;
-    border: 1px solid @color-swatch6;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    font-family: @font-swatch7-font-family;
-    font-size: @font-swatch7-font-size;
-    font-weight:@font-swatch7-font-weight;
-    line-height: @font-swatch7-line-height;
-    letter-spacing: 0.2px;
-    background-color: @color-swatch6;
-    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
-    background-repeat: inherit;
-    background-size: cover;
-    background-position: inherit;
-    color: @font-swatch7-color;
-    text-shadow: 0 1px 1px darken(@color-swatch6,10%);
-    text-decoration: none;
-    text-transform: uppercase;
+
     @media @tablet {
         width: 40%;
     }
     @media @mobile {
         width: 100%;
     }
-}
-
-.widget.signupform fieldset button.btn:hover, .blog-search-submit-button:hover {
-    background-image: -webkit-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: -moz-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: -ms-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: -o-linear-gradient(top, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-    cursor: pointer;
 }
 
 .blog-search-form label {
