@@ -505,7 +505,6 @@ header.bk-header {
 }
 
 .companyheader {
-    display: inline-block;
     padding: 0;
     float: left;
     vertical-align: middle;
@@ -583,9 +582,6 @@ footer.bk-footer h4 {
    STANDARD NAVIGATION
    =============================== */
 
-.widget.navigation {
-}
-
 .widget.navigation ul {
   padding: 0;
   margin: 0;
@@ -622,12 +618,11 @@ footer.bk-footer h4 {
    =============================== */
 
 .widget.extendednavigation {
-  float: right;
-  position: relative;
-  background-color: transparent;
-  display: inline-block;
-  vertical-align: middle;
-  width: 60%;
+    float: right;
+    position: relative;
+    background-color: transparent;
+    vertical-align: middle;
+    width: 60%;
 }
 
 .widget.extendednavigation a.pull {
@@ -890,9 +885,6 @@ footer.bk-footer h4 {
     text-shadow: 0px 1px 0px fade(@color-swatch6, 50%);
     color: @font-swatch7-color;
     text-decoration: none;
-}
-
-.widget.feature .feature-btn .btnText {
 }
 
 .widget.feature button:hover {
@@ -1456,7 +1448,6 @@ div.twitter-profile-pic {
     line-height: 40px;
 }
 
-
 /* ===============================
    CONTACT FORM WIDGET
    =============================== */
@@ -1543,6 +1534,7 @@ select,
             border-color: lighten(@color--dark, 20%);
         }
     }
+
     &:focus {
         outline: none;
         box-shadow: 0 0 3px darken(@color-swatch3,10%);
@@ -2114,7 +2106,7 @@ select,
                     @media @tablet {
                         padding: 1.25em 0 0.75em;
                     }
-                    h1, h2, {    /* menu-name menu-section-name */
+                    h1, h2 {    /* menu-name menu-section-name */
                         text-align: center;
                         overflow: hidden; 
                     &:before, &:after {
@@ -3369,10 +3361,6 @@ footer.bk-footer .widget.profile .twitter span, .widget.profile .twitter span a 
     .widget.feature {
       width: 100%;
       margin: 0 auto;
-    }
-
-
-    .widget.feature .content .spare {
     }
 
     .widget.feature h2 {
