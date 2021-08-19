@@ -5,6 +5,16 @@
 @import "@{templateCommon}/basekit-bootstrap.less";
 
 /* ===============================
+   MIXINS
+   =============================== */
+
+.appearance(@appearance: none) {
+    -webkit-appearance: @appearance;
+    -moz-appearance: @appearance;
+    appearance: @appearance;
+}
+
+/* ===============================
    TEMPLATE CSS
    =============================== */
 
@@ -805,22 +815,28 @@ footer.bk-footer h4 {
 
 .widget.feature .feature-bgimg {
   width: 100%;
-  height: 450px;
   display: inherit;
-}
+  height: auto;
+  min-height: 450px;
 
-.widget.feature .feature-bgimg .content {
-  height: 450px;
+  @media @mobile {
+    min-height: 400px;
+  }
 }
 
  .widget.feature .content {
   text-align: center;
-  height: 450px;
+  height: auto;
+  min-height: 450px;
+
+  @media @mobile {
+    min-height: 400px;
+  }
 }
 
 .widget.feature .content .spare {
   margin: 0;
-  padding: 35px 0 0 0;
+  padding: 35px 20px;
 }
 
 .widget.feature .feature-bgimg .content button {
@@ -1446,12 +1462,14 @@ div.twitter-profile-pic {
   margin-bottom: 1.5em;
 }
 
-label, .contactform label, .advancedcontactform label {
+label,
+.contactform label,
+.advancedcontactform label {
     width: 100%;
-    font-family:@font-swatch5-font-family;
-    font-size:@font-swatch5-font-size;
-    font-weight:@font-swatch5-font-weight;
-    line-height:@font-swatch5-line-height;
+    font-family: @font-swatch5-font-family;
+    font-size: @font-swatch5-font-size;
+    font-weight: @font-swatch5-font-weight;
+    line-height: @font-swatch5-line-height;
     color: @font-swatch5-color;
     letter-spacing: @font-swatch5-letter-spacing;
     word-break: break-word;
@@ -1469,9 +1487,15 @@ label, .contactform label, .advancedcontactform label {
     }
 }
 
-
-input, .contactform input, .contactform select, 
-.advancedcontactform input, .advancedcontactform select {
+input,
+textarea,
+select,
+.contactform input,
+.contactform textarea,
+.contactform select, 
+.advancedcontactform input,
+.advancedcontactform textarea,
+.advancedcontactform select {
     height: 40px;
     width: 100%;
     background-color: @color-swatch1;
@@ -1480,6 +1504,7 @@ input, .contactform input, .contactform select,
     color: @color-swatch5;
     text-indent: 10px;
     padding: 0;
+    border-radius: 0;
     border: 1px solid darken(@color-swatch3, 10%);
 
     .style--light & {
@@ -1533,70 +1558,26 @@ input, .contactform input, .contactform select,
     }
 }
 
+textarea,
 .contactform textarea,
 .advancedcontactform textarea {
     height: 100px;
+}
+
+select,
+.contactform select,
+.advancedcontactform select {
+	padding-right: 2.2em;
     width: 100%;
-    background-color: @color-swatch1;
-    font-family: @font-swatch5-font-family;
-    font-size: @font-swatch5-font-size;
-    color: @font-swatch5-color;
-    text-indent: 10px;
-    padding-top: 10px;
-    resize: vertical;
-    overflow: auto;
-    border: 1px solid darken(@color-swatch3, 10%);
+    .appearance(none) !important;
+	background-image: url("data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNCAyNCI+Cgk8cG9seWxpbmUgc3Ryb2tlPSIjNzY3ODgwIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjMiIHBvaW50cz0iMjAuMSw4LjYgMTIsMTYuNyAzLjksOC42IiAvPgo8L3N2Zz4=");
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1.2em;
 
-
-    .style--light & {
-        background-color: @color--light;
-        border-color: darken(@color--light, 10%);
-        color: @contrast--light;
-    }
-
-    .style--accent & {
-        background-color: @color--light;
-        border-color: darken(@color--accent, 10%);
-        color: @contrast--light;
-    }
-
-    .style--dark & {
-        background-color: @color--light;
-        border-color: lighten(@color--dark, 10%);
-        color: @contrast--light;
-    }
-
-    &:hover {
-        border: 1px solid darken(@color-swatch3, 20%);
-
-        .style--light & {
-            border-color: darken(@color--light, 20%);
-        }
-
-        .style--accent & {
-            border-color: darken(@color--accent, 20%);
-        }
-
-        .style--dark & {
-            border-color: lighten(@color--dark, 20%);
-        }
-    }
-    &:focus {
-        outline: none;
-        box-shadow: 0 0 3px darken(@color-swatch3,10%);
-
-        .style--light & {
-            border-color: darken(@color--light, 10%);
-        }
-
-        .style--accent & {
-            border-color: darken(@color--accent, 10%);
-        }
-
-        .style--dark & {
-            border-color: lighten(@color--dark, 10%);
-        }
-    }
+	&::-ms-expand {
+		display: none;
+	}
 }
 
 .contactform button, .contactform button.btn, 
@@ -2466,10 +2447,41 @@ input, .contactform input, .contactform select,
    Ecom
    =============================== */
 
-.widget.ecomproductslist #productlist-search {
-  border-radius: 3px;
-  height: 48px;
-  width: auto;
+.widget.ecomproductslist .ecom-productslist-products {
+	form.productlist-display-form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0 -10px;
+
+		.form-group {
+			flex-grow: 1;
+			margin: 0;
+			padding: 10px;
+			width: 100%/3;
+
+            @media @mobile {
+                width: 100%;
+            }
+
+			&.productlist-search {
+                display: flex;
+                flex-wrap: wrap;
+				width: auto;
+				
+				input {
+                    flex-grow: 1;
+                    margin-right: 10px;
+					position: static;
+                    width: auto;
+
+                    @media @mobile {
+                        margin-right: 0;
+                    }
+				}
+			} 
+		}
+	}
 }
 
 .widget.ecomproductslist .ecom-productslist-image-wrap,
@@ -2487,82 +2499,6 @@ input, .contactform input, .contactform select,
     .style--dark & {
         color: @contrast--dark;
     }
-}
-
-.widget.ecomproductslist .productlist-search button.btn {
-  font-size: 13px;
-  padding: 11px 16px;
-}
-
-.widget.ecomproduct .ecom-product .ecom-product-info .ecom-product-variation select {
-    -webkit-appearance: none;
-    -moz-appearance: window;
-    appearance: none;
-    outline: none !important;
-    -moz-outline-style: none;
-    border: 1px solid darken(@color-swatch3, 10%);
-    position: relative;
-    padding: 10px 23px 10px 10px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background-image: image('/images/arrow.png');
-    background-position: right 6% center;
-    background-repeat: no-repeat;
-    background-color:@color-swatch1;
-    background-position-x: 98%;
-    background-position-y: 53%;
-}
-
-.widget.ecomcheckout .delivery select {
-  -webkit-appearance: none;
-    -moz-appearance: window;
-    appearance: none;
-    outline: none !important;
-    -moz-outline-style: none;
-    border: 1px solid darken(@color-swatch3, 10%);
-    position: relative;
-    padding: 10px 23px 10px 10px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background-image: image('/images/arrow.png');
-    background-position: right 6% center;
-    background-repeat: no-repeat;
-    background-position-x: 99%;
-    background-position-y: 53%;
-    background-color:@color-swatch1;
-}
-
-select {
-    -webkit-appearance: none;
-    -moz-appearance: window;
-    appearance: none;
-    outline: none !important;
-    -moz-outline-style: none;
-    border: 1px solid darken(@color-swatch3, 10%);
-    position: relative;
-    padding: 14px 23px 12px 10px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background-image: image('/images/arrow.png');
-    background-position: right 6% center;
-    background-repeat: no-repeat;
-    background-position-x: 95%;
-    background-position-y: 53%;
-    background-color: @color-swatch1;
-}
-
-select::-ms-expand {
-   display: none;
-}
-.widget.ecomproduct .ecom-product .ecom-product-info .ecom-product-variation select,
-   select {
-   -moz-appearance: none;
-   text-indent: 0.01px
-   ;
-   text-overflow: '';
 }
 
 .ecom-product-add-to-cart-btn-wrapper {
@@ -2847,18 +2783,22 @@ h2.ecom-productslist-title, h2.ecom-featuredproducts-title {
             -moz-border-radius: 50%;
             border-radius: 50%;
         }
+        .btn-prev,
+        .btn-next {
+            &:after {
+                color: #fff;
+                top: 5px;
+                line-height: 30px;
+            }
+        }
         .btn-prev {
             &:after {
                 content: "\2190";
-                color: #fff;
-                top: 5px;
             }
         }
         .btn-next {
             &:after {
                 content: "\2192";
-                color: #fff;
-                top: 5px;
             }
         }
         /* Play Button */
@@ -2976,12 +2916,6 @@ h2.ecom-productslist-title, h2.ecom-featuredproducts-title {
 .widget.profile a:hover {
     color: @color-swatch2;
     text-decoration: none;
-}
-
-input, textarea {
-    background-color: @color-swatch1;
-    border: 1px solid darken(@color-swatch3, 10%);
-    height: 40px;
 }
 
 .widget.profile form fieldset input {
@@ -3424,13 +3358,6 @@ footer.bk-footer .widget.profile .twitter span, .widget.profile .twitter span a 
       margin: 0 auto;
     }
 
-    .widget.feature .feature-bgimg {
-        height: 450px;
-    }
-
-    .widget.feature .content {
-        height: 450px;
-    }
 
     .widget.feature .content .spare {
     }
@@ -3594,14 +3521,6 @@ footer.bk-footer .widget.profile .twitter span, .widget.profile .twitter span a 
 
 
     /* FEATURE */
-
-    .widget.feature .feature-bgimg {
-        height: 400px;
-    }
-
-    .widget.feature .content {
-        height: 400px;
-    }
 
     .widget.feature .content .spare {
       padding: 15px 0;
