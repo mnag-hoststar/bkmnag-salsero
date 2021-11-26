@@ -2444,11 +2444,29 @@ select,
 // E-COMMERCE
 
 .widget.ecomproductslist .ecom-productslist-products {
+    max-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+
+    .productlist-filter {
+        margin: 0 10px;
+        width: 100%;
+    }
+
 	form.productlist-display-form {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		margin: 0 -10px;
+
+        @media @tablet {
+            display: block;
+        }
+
+        .responsivecolumns & {
+            display: block;
+        }
 
 		.form-group {
 			flex-grow: 1;
@@ -2456,7 +2474,11 @@ select,
 			padding: 10px;
 			width: 100%/3;
 
-            @media @mobile {
+            @media @tablet {
+                width: 100%;
+            }
+
+            .responsivecolumns & {
                 width: 100%;
             }
 
@@ -2464,6 +2486,14 @@ select,
                 display: flex;
                 flex-wrap: wrap;
 				width: auto;
+
+                @media @tablet {
+                    width: 100%;
+                }
+    
+                .responsivecolumns & {
+                    width: 100%;
+                }
 				
 				input {
                     flex-grow: 1;
@@ -2474,7 +2504,23 @@ select,
                     @media @mobile {
                         margin-right: 0;
                     }
+
+                    .responsivecolumns & {
+                        margin-right: 0;
+                    }
 				}
+
+                button {
+                    @media @tablet {
+                        margin-top: 10px;
+                        width: 100%;
+                    }
+        
+                    .responsivecolumns & {
+                        margin-top: 10px;
+                        width: 100%;
+                    }
+                }
 			} 
 		}
 	}
