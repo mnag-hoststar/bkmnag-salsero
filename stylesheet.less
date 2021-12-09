@@ -2,6 +2,12 @@
 
 @import "@{templateCommon}/basekit-bootstrap.less";
 
+
+@desktop-small: ~"only screen and (max-width: 1084px)";
+@mobile-large: ~"only screen and (max-width: 530px)";
+@mobile-small: ~"only screen and (max-width: 380px)";
+@mobile-smaller: ~"only screen and (max-width: 360px)";
+
 // MIXINS
 
 .appearance(@appearance: none) {
@@ -487,7 +493,7 @@ blockquote {
 		text-overflow: ellipsis;
 		
 		.language-selector--flag-text& {
-			@media only screen and (max-width: 380px) {
+			@media @desktop-small {
 				display: none;
 			}
 		}
@@ -2393,7 +2399,7 @@ select {
 .widget.menu {
     margin: 0 auto;
 
-    @media only screen and (max-width: 1084px) {
+    @media @desktop-small {
          width: 90%;
     }
 
@@ -2407,7 +2413,7 @@ select {
         padding-top: 20px;
         margin: 0 auto;
 
-        @media only screen and (max-width: 1084px) {
+        @media @desktop-small {
             width: 93%;
         }
 
@@ -3038,7 +3044,7 @@ select {
         tr td {
             border-bottom: 1px solid darken(@color-swatch3,10%);
 
-            @media (max-width: 360px) {
+            @media @mobile-smaller {
                 display: table;
                 width: 100%;
                 border-bottom: 0;
@@ -3055,7 +3061,7 @@ select {
             }
 
             &:nth-child(2) {
-                @media (max-width: 530px) {
+                @media @mobile-large {
                     padding-left: 0;
                 }
             }
@@ -3066,21 +3072,21 @@ select {
             }
 
             &:nth-child(1) {
-                @media (max-width: 360px) {
+                @media @mobile-smaller {
                     padding-bottom: 0;
                 }
             }
             
             &:nth-child(2),
             &:nth-child(3) {
-                @media (max-width: 360px) {
+                @media @mobile-smaller {
                     padding: 0 20px 0;
                     border-left: 0;
                 }
             }
 
             &:last-child {
-                @media (max-width: 360px) {
+                @media @mobile-smaller {
                     padding: 6px 20px;
                     margin: 20px 0 0;
                     border-bottom: 1px solid darken(@color-swatch3,10%);
@@ -3090,7 +3096,7 @@ select {
         }
 
         tr:last-child td:last-child {
-            @media (max-width: 360px) {
+            @media @mobile-smaller {
                 border-top: 0;
                 margin-top: 0;
                 padding-top: 0;
