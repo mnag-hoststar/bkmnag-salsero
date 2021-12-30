@@ -3167,7 +3167,7 @@ select {
 // E-COMMERCE
 
 .widget.ecomproductslist,
-.widget.featuredproducts {
+.widget.ecomfeaturedproducts {
     label {
         display: block;
 
@@ -3175,19 +3175,24 @@ select {
             display: block;
         }
     }
+}
 
-    .ecom-productslist-products {
-        max-width: none;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -10px;
+.widget.ecomproductslist .ecom-productslist-products,
+.widget.ecomfeaturedproducts .ecom-featuredproducts-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+    margin: 0 -10px;
+    margin-left: 0;
+    overflow: hidden;
+
+    // Filter
+
+    .productlist-filter {
+        margin: 0 10px;
+        width: 100%;
     
-        .productlist-filter {
-            margin: 0 10px;
-            width: 100%;
-        }
-    
-        form.productlist-display-form {
+        .productlist-display-form {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -3200,6 +3205,8 @@ select {
             .responsivecolumns & {
                 display: block;
             }
+
+			// Filter Group
     
             .form-group {
                 flex-grow: 1;
@@ -3214,6 +3221,8 @@ select {
                 .responsivecolumns & {
                     width: 100%;
                 }
+
+				// Search Form
     
                 &.productlist-search {
                     display: flex;
@@ -3257,54 +3266,52 @@ select {
                 } 
             }
         }
+    }
+}
+
+// Product Item
+
+.widget.ecomproductslist .ecom-productslist-product,
+.widget.ecomfeaturedproducts .ecom-featuredproducts-product {
+    display: block;
+    width: 100%/3;
+    margin: 0 0 60px;
+    padding: 0 10px;
+    overflow: auto;
     
-        // Product List
-    
-        .ecom-productslist,
-        .ecom-featuredproducts {
-            &-products {
-                margin-left: 0;
-                max-width: none;
-                overflow: hidden;
-            }
-    
-            &-product {
-                display: block;
-                width: 100%/3;
-                margin: 0 0 60px;
-                padding: 0 10px;
-                overflow: auto;
-                
-                @media @tablet {
-                    width: 100%/2;
-                }
-                
-                @media @mobile {
-                    width: 100%;
-                }
-    
-                .responsivecolumns & {
-                    width: 100%;
-                }
-            }
-            
-            &-title {
-                font-size: @font-swatch4-font-size;
-            }
-    
-            &-image-wrap {
-                background-color: transparent;
-                background-position: center;
-                margin-bottom: 20px;
-            }
-        }
+    @media @tablet {
+        width: 100%/2;
     }
     
-    .ecom-productlist-price {
-        @media @tablet {
-            margin:0px auto;
-            display:table;
-        }
+    @media @mobile {
+        width: 100%;
+    }
+
+    .responsivecolumns & {
+        width: 100%;
+    }
+}
+
+// Title
+
+.widget.ecomproductslist .ecom-productslist-title,
+.widget.ecomfeaturedproducts .ecom-featuredproducts-title {
+    font-size: @font-swatch4-font-size;
+
+    &-image-wrap {
+        background-color: transparent;
+        background-position: center;
+        margin-bottom: 20px;
+    }
+}
+
+// Price
+
+.widget.ecomproductslist .ecom-productlist-price,
+.widget.ecomfeaturedproducts .ecom-featuredproducts-price {
+    @media @tablet {
+        margin:0px auto;
+        display:table;
     }
 }
 
@@ -3324,10 +3331,8 @@ select {
 
 // Product
 
-.widget.ecomproduct {
-    .ecom-product .btn {
-        margin: 20px 20px 0 0;
-    }
+.widget.ecomproduct .ecom-product .btn {
+    margin: 20px 20px 0 0;
 }
 
 // Basket
