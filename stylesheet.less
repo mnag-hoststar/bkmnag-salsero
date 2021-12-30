@@ -2,7 +2,6 @@
 
 @import "@{templateCommon}/basekit-bootstrap.less";
 
-
 @desktop-small: ~"only screen and (max-width: 1084px)";
 @mobile-large: ~"only screen and (max-width: 530px)";
 @mobile-small: ~"only screen and (max-width: 380px)";
@@ -16,7 +15,7 @@
     appearance: @appearance;
 }
 
-// TEMPLATE CSS
+// TEMPLATE
 
 body {
     background-color: @color-swatch3;
@@ -29,15 +28,6 @@ body {
     max-width: 960px;
     width: 90%;
     margin: 0 auto;
-}
-
-a {
-    color: @font-swatch4-color;
-    text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
 }
 
 h1, h2, h3, h4, h5, p {
@@ -83,6 +73,20 @@ blockquote {
         color: fade(@contrast--dark, 90%);
     }
 }
+
+// Link
+
+a {
+    color: @font-swatch4-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+// Blockquote
 
 blockquote {
     margin: 30px 0;
@@ -576,10 +580,9 @@ header.bk-header {
 
 .widget.logo,
 .widget.companyname {
-        display: table-cell;
-        vertical-align: middle;
-        padding-right: 10px;
-    }
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
 }
 
 // FOOTER
@@ -653,7 +656,7 @@ footer.bk-footer {
     }
 }
 
-// EXTENDED NAVIGATION
+// NAVIGATION
 
 .widget.navigation,
 .widget.extendednavigation {
@@ -2041,6 +2044,7 @@ hr.line {
 }
 
 label,
+.label,
 .contactform label,
 .advancedcontactform label {
     width: 100%;
@@ -2231,7 +2235,7 @@ select {
 .advancedcontactform .option-item--radio,
 .advancedcontactform .option-item--checkbox {
 	label {
-		label;
+		.label;
 		word-break: break-word;
 	}
 }
@@ -2353,7 +2357,7 @@ select {
 }
 
 .widget.profile {
-    *zoom: 1
+    *zoom: 1;
 
     &:before,
     &:after {
