@@ -2624,7 +2624,7 @@ select {
         background-position: right center;
         font-size: @font-swatch5-font-size;
         color: @font-swatch5-color;
-        text-shadow: 0 1px 0 rgba(255,255,255,.5);
+        text-shadow: 0 1px 0 fade(@color-swatch1, 50%);
         text-decoration: none;
         cursor: pointer;
 
@@ -3678,7 +3678,7 @@ select {
         .btn-prev,
         .btn-next {
             &:after {
-                color: #fff;
+                color: #color__button--text;
                 top: 5px;
                 line-height: 30px;
             }
@@ -3703,7 +3703,7 @@ select {
             border-radius: 4px;
 
             &:after {
-                color: #fff;
+                color: @color__button--text;
                 letter-spacing: -4px;
                 top: -2px;
                 font-size:20px;
