@@ -1679,12 +1679,31 @@ footer.bk-footer {
 // BUTTONS
 
 .widget.button button,
-.contactform button.btn, 
-.widget.advancedcontactform button.button,
-.widget.signupform fieldset button.btn,
-.widget.ecomproductslist button.btn,
-.blog-post-more-link a,
+.contactform button,
+.contactform button.btn,
+.signupform fieldset button,
+.signupform fieldset button.btn,
+.advancedcontactform button,
+.advancedcontactform button.btn,
+.widget.profile form button,
+.widget.paypalbuynow .widget.button.paypal,
+.widget.dropbox button,
 .blog-search-submit-button,
+.blog-list-footer .paginate-older,
+.ecom-productslist-products .productlist-search .btn,
+.widget.ecomproduct .ecom-product .btn,
+.widget.ecomcheckout .checkout-order-button,
+.widget.ecombasket .ecombasket-pull,
+.widget.ecombasket .ecombasket-list-container .ecombasket-checkout-wrap .ecombasket-checkout-link,
+.widget.ecombasketsummary .basket-summary-continue-shopping,
+.widget.ecombasketsummary .basket-summary-submit,
+.widget.feature .feature-bgimg .content button,
+.widget.tweet a,
+.widget.socialicons span a,
+.widget.clicktocall a,
+.blog-post-more-link a,
+.widget.ecomcategorieslist ul li a,
+.widget.yelpreview .review-body .review-link a,
 a.contentgroup__link {
     border: 1px solid @color-swatch6;
     -webkit-border-radius: 3px;
@@ -2444,10 +2463,19 @@ textarea,
 select,
 .contactform input,
 .contactform textarea,
-.contactform select, 
+.contactform select,
+.signupform fieldset input,
+.signupform fieldset input.email,
 .advancedcontactform input,
 .advancedcontactform textarea,
-.advancedcontactform select {
+.advancedcontactform select,
+.widget.profile form fieldset input,
+.blogsearch input.blog-search-input,
+.productlist-filter .productlist-search input,
+.widget input[type="text"],
+.widget input[type="email"],
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
     height: 40px;
     width: 100%;
     background-color: @color-swatch1;
