@@ -1685,6 +1685,7 @@ footer.bk-footer {
 .signupform fieldset button.btn,
 .advancedcontactform button,
 .advancedcontactform button.btn,
+.userregistration fieldset .userregistrationbtn,
 .widget.profile form button,
 .widget.paypalbuynow .widget.button.paypal,
 .widget.dropbox button,
@@ -2469,6 +2470,7 @@ select,
 .advancedcontactform input,
 .advancedcontactform textarea,
 .advancedcontactform select,
+.userregistration fieldset input,
 .widget.profile form fieldset input,
 .blogsearch input.blog-search-input,
 .productlist-filter .productlist-search input,
@@ -2831,6 +2833,42 @@ footer.bk-footer .widget.profile .form-group.profile__form-group.profile__form-g
     @media @mobile {
         width: 100%;
     }
+}
+
+// REGISTERATION FORM
+
+.widget.userregistration {
+	fieldset {
+		margin: 0 auto;
+		padding: 0;
+		border: none;
+		max-width: 400px;
+		
+		@media @mobile {
+			max-width: none;
+		}
+
+		.responsivecolumns & {
+			max-width: none;
+		}
+
+		input {
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		.error {
+			padding: 20px 0 0;
+
+			&[style*="display: block"] {
+				padding: 20px 0;
+			}
+
+			&[style*="display: none"] {
+				display: block !important;
+			}
+		}
+	}
 }
 
 // REDIRECT
