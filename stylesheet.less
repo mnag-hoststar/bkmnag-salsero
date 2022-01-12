@@ -4243,24 +4243,31 @@ footer.bk-footer {
         padding: 20px;
         font-weight: 700;
     }
-
-    .basket-summary-submit,
-    .basket-summary-empty-cta {
+    
+    .basket-summary-continue-shopping,
+	.basket-summary-submit,
+    .basket-summary-empty-cta  {
         display: inline-block;
+		margin-left: 0;
+		margin-right: 10px;
+		margin-bottom: 10px;
         padding: 0 12px;
         line-height: 45px;
         height: 45px;
         font-weight: @font-swatch7-font-weight;
-    }
-
-    .basket-summary-empty-cta.btn {
         background-color:@color-swatch3;
         text-decoration: none;
 
         &:hover {
             background-color:@color-swatch7;
         }
-    }
+
+		@media @mobile {
+			margin-right: 0;
+			width: 100%;
+			text-align: center;
+		}
+	}
 
     .basket-summary-legal-links {
         padding-top: 10px;
