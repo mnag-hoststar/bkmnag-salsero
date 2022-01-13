@@ -4009,8 +4009,25 @@ footer.bk-footer {
 
 // Product
 
-.widget.ecomproduct .ecom-product .btn {
-    margin: 20px 20px 0 0;
+.widget.ecomproduct {
+    .ecom-product .btn {
+        margin: 20px 20px 0 0;
+    }
+    
+    .product-actions {
+		button {
+			margin-bottom: 1em;
+			text-align: center;
+        
+			@media @mobile {
+				width: 100%;
+			}
+
+			&:before {
+				float: none;
+			}
+		}
+	}
 }
 
 // Basket
