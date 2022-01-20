@@ -162,47 +162,52 @@ blockquote {
     margin: 30px 0;
     quotes: "\201C""\201D""\2018""\2019";
     font-family:@font-swatch4-font-family;
-    font-size: bkscale(@font-swatch4-font-size,0.75);
+    font-size: bkscale(@font-swatch4-font-size, 0.75);
     font-weight:@font-swatch4-font-weight;
-    line-height: bkscale(@font-swatch4-line-height,0.9);
-    color: lighten(@color-swatch4,20%);
+    line-height: bkscale(@font-swatch4-line-height, 0.9);
+	color: @font-swatch5-color;
     padding: 18px;
+    background-color: fade(@font-swatch5-color, 60%);
     margin-left: 30px;
     word-break: break-word;
 
-    .style--light & {
-        color: @contrast--light;
-    }
+	.style--light & {
+		color: @contrast--light;
+		background-color: fade(@contrast--light, 60%);
+	}
 
-    .style--accent & {
-        color: @contrast--accent;
-    }
+	.style--accent & {
+		color: @contrast--accent;
+		background-color: fade(@contrast--accent, 60%);
+	}
 
-    .style--dark & {
-        color: @contrast--dark;
-    }
+	.style--dark & {
+		color: @contrast--dark;
+		background-color: fade(@contrast--dark, 60%);
+	}
 
     &:before {
-        font-family: georgia;
-        color: @color-swatch2;
+        font-family: Georgia;
+		font-family: @font-swatch4-font-family;
+		color: fade(@font-swatch5-color, 60%);
         content: open-quote;
         font-size: 2.5em;
         line-height: .1em;
         margin-right: .1em;
         vertical-align: -.4em;
         margin-left: -10px;
-    
-        .style--light & {
-            color: @color--accent;
-        }
-    
-        .style--accent & {
-            color: @contrast--accent;
-        }
-    
-        .style--dark & {
-            color: @contrast--dark;
-        }
+
+		.style--light & {
+			color: fade(@contrast--light, 60%);
+		}
+	
+		.style--accent & {
+			color: fade(@contrast--accent, 60%);
+		}
+	
+		.style--dark & {
+			color: fade(@contrast--dark, 60%);
+		}
     }
 }
 
