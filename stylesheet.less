@@ -1021,6 +1021,34 @@ footer.bk-footer {
         float: none;
     }
 
+    // Mobile Menu
+
+    a.pull {
+        display: none;
+
+        @media @tablet {
+            display: block;
+            position: absolute;
+            top: -8px;
+        }
+    
+        &:after {
+            @media @tablet {
+                content:"";
+                background: image('/images/nav-icon.png') no-repeat;
+                background-position: center;
+                width: 30px;
+                height: 30px;
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                box-shadow: none;
+            }
+        }
+    }
+
+    // Menu Points
+
     ul {
         padding: 0;
         margin: 0;
@@ -1047,6 +1075,8 @@ footer.bk-footer {
         &.align-right li {
             text-align: right;
         }
+
+        // Menu Point
         
         li {
             float: left;
@@ -1085,30 +1115,36 @@ footer.bk-footer {
                     padding-bottom:0;
                 }
             }
-        
-            &:hover {
-                ul {
-                    margin-top: 0;
-                    background-color: @color-swatch3;
-                    margin-top: 10px;
-
-                    @media @tablet {
-                        margin-top: 0;
-                    }
-                }
-                
-                .text {
-                    @media @tablet {
-                        color: @font-swatch6-color-hover;
-                    }
-                }
-            }
 
             &:last-child {
                 @media @tablet {
                     border-bottom: none;
                 }
             }
+        
+            a,
+            &.folder .text {
+                display: block;
+                padding: 10px 17px;
+                font-family:@font-swatch6-font-family;
+                font-size:@font-swatch6-font-size;
+                font-weight: @font-swatch6-font-weight;
+                color: @font-swatch6-color;
+                line-height:@font-swatch6-line-height;
+                letter-spacing: @font-swatch6-letter-spacing;
+                text-transform: uppercase;
+
+                @media @tablet {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .main & {
+                    margin-left: 0;
+                }
+            }
+
+            // Folder
         
             &.folder {
                 display:inline-block;
@@ -1120,6 +1156,10 @@ footer.bk-footer {
 
                 @media @tablet {
                     border-radius: 0;
+                }
+	
+                &:after {
+                    content: none;
                 }
             
                 &:hover {
@@ -1147,170 +1187,141 @@ footer.bk-footer {
                     }
                 }
                 
-                .text {
-                    @media @mobile {
-                        padding:0;
-                    }
-                
-                    &:after {
-                        display:none;
-                    }
-                
-                    &:hover {
-                        border-bottom: none;
-                        border: 0;
-                        color: @font-swatch6-color;
-                    }
-                }
-            
-                ul li a .text {
-                    padding:0px 20px;
-                }
-            }
-        
-            a,
-            &.folder .text {
-                display: block;
-                padding: 10px 17px;
-                font-family:@font-swatch6-font-family;
-                font-size:@font-swatch6-font-size;
-                font-weight: @font-swatch6-font-weight;
-                color: @font-swatch6-color;
-                line-height:@font-swatch6-line-height;
-                letter-spacing: @font-swatch6-letter-spacing;
-                text-transform: uppercase;
-
-                @media @tablet {
-                    padding: 0;
-                    margin: 0;
-                }
-
-                .main & {
-                    margin-left: 0;
-                }
-            }
-        }
-    }
-    
-    li {
-        > ul {
-            display: none;
-            background-color: @color-swatch3;
-
-            @media @tablet {
-                display: none!important;
-            }
-    
-            li:first-child {
-                @media @tablet {
-                    border-top: none;
-                }
-            }
-        }
-    
-        &:hover > ul {
-            display: block;
-            position: absolute;
-            z-index: 500;
-            margin-top: 10px;
-            margin-left:10px;
-            right: 0;
-
-            @media @tablet {
-                display: block!important;
-                width: 100%;
-                padding: 0;
-            }
-        
-            > li {
-                display: block;
-                width: 100%;
-                padding: 10px 0;
-
-                @media @tablet {
-                    padding: 0;
-                }
-        
-                &:hover {
-                    background-color: darken(@color-swatch3, 10%);
-                    border-bottom: none;
-                }
-                
-                &:last-child {
-                    border-bottom: none;
-                }
-                
-                > a {
-                    display: block;
-                    background-image: none;
-                    color: @font-swatch6-color;
-                    margin-left: 0;
-                    padding: 0;
-
-                    @media @tablet {
-                        padding: 8px 0px;
-                        padding-left: 10px;
-                    }
-                
-                    &:hover {
-                        border-bottom: 0;
-                        margin-bottom: 0;
-                    }
-                    
-                    .text {
-                        margin-left: 0;
-                    }
-                }
-
-                .text {
-                    @media @tablet {
-                        color: @font-swatch6-color;
-                    }
-                }
-                    
-                &:hover .text {
+                > .text {
                     @media @tablet {
                         color: @font-swatch6-color-hover;
                     }
+
+                    @media @mobile {
+                        padding: 0;
+                    }
+		
+                    // Folder Arrow
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        right: 0.5em;
+                        border: 2px solid fade(@font-swatch6-color, 60%);
+                        border-top: transparent;
+                        border-left: transparent;
+                        transform: rotate(45deg);
+                        margin-top: -0.5em;
+                        width: 0.5em;
+                        height: 0.5em;
+                    }
+                
+                    &:hover:after {
+                        border-color: @font-swatch6-color-hover;
+                    }
+                }
+
+                // Dropdown
+
+                > ul,
+                &:hover > ul {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    z-index: 500;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    margin-top: 0;
+                    background-color: @color-swatch3;
+                    margin-top: 10px;
+
+                    @media @tablet {
+                        display: none;
+                        margin-top: 0;
+                        width: 100%;
+                        padding: 0;
+                    }
+                    
+                    li {
+                        display: block;
+                        width: 100%;
+                        padding: 10px 0;
+        
+                        @media @tablet {
+                            padding: 0;
+                        }
+        
+                        &:hover {
+                            background-color: darken(@color-swatch3, 10%);
+                            border-bottom: none;
+                        }
+
+                        &:first-child {
+                            @media @tablet {
+                                border-top: none;
+                            }
+                        }
+                
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        > a {
+                            display: block;
+                            background-image: none;
+                            color: @font-swatch6-color;
+                            margin-left: 0;
+                            padding: 0;
+        
+                            @media @tablet {
+                                padding: 8px 0px;
+                                padding-left: 10px;
+                            }
+                        
+                            &:hover {
+                                border-bottom: 0;
+                                margin-bottom: 0;
+                            }
+
+                            .text {
+                                margin-left: 0;
+                                padding: 0px 20px;
+
+                                @media @tablet {
+                                    color: @font-swatch6-color;
+                                }
+                            }
+                    
+                            &:hover .text {
+                                @media @tablet {
+                                    color: @font-swatch6-color-hover;
+                                }
+                            }
+                        }
+    
+                        &.selected {
+                            a {
+                                text-decoration: none;
+                                border-bottom: 3px solid @color-swatch7;
+                                margin-bottom: -10px;
+                                padding-bottom: 6px !important;
+                
+                                @media @tablet {
+                                    border: 0;
+                                    padding-bottom: 0px !important;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }
+	
+            // Folder Open
     
-        &.selected {
-            a {
-                text-decoration: none;
-                border-bottom: 3px solid @color-swatch7;
-                margin-bottom: -10px;
-                padding-bottom: 6px !important;
+            &.folder-open ul,
+            &.folder-open:hover ul {
+                display: block;
 
                 @media @tablet {
-                    border: 0;
-                    padding-bottom: 0px !important;
+                    display: block;
                 }
-            }
-        }
-    }
-
-    a.pull {
-        display: none;
-
-        @media @tablet {
-            display: block;
-            position: absolute;
-            top: -8px;
-        }
-    
-        &:after {
-            @media @tablet {
-                content:"";
-                background: image('/images/nav-icon.png') no-repeat;
-                background-position: center;
-                width: 30px;
-                height: 30px;
-                display: inline-block;
-                position: absolute;
-                right: 0;
-                box-shadow: none;
             }
         }
     }
