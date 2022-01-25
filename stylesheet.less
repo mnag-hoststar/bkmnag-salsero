@@ -2214,15 +2214,11 @@ input:-webkit-autofill:focus {
     }
 }
 
-textarea,
-.contactform textarea,
-.advancedcontactform textarea {
+textarea {
     height: 100px;
 }
 
-select,
-.contactform select,
-.advancedcontactform select {
+select {
 	padding-right: 2.2em;
     width: 100%;
     .appearance(none) !important;
@@ -2231,33 +2227,18 @@ select,
     background-position: right 0.5em center;
     background-size: 1.2em;
 
-	&::-ms-expand {
-		display: none;
-	}
-}
-
-select {
     @media @tablet {
         width: 100%;
     }
+
+	&::-ms-expand {
+		display: none;
+	}
 
     option {
 		background-color: @color-swatch1;
 		color: @font-swatch5-color;
 	}
-}
-
-.contactform button, .contactform button.btn, 
-.advancedcontactform button, .advancedcontactform button.btn,
-.signupform button.btn,
-.blog-search-submit-button {
-    @media @tablet {
-        width: 40%;
-    }
-
-    @media @mobile {
-        width: 100%;
-    }
 }
 
 // Radiobuttons and Checkboxes
