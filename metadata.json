@@ -1,7 +1,7 @@
 {
 	"name":"Salsero",
-	"thumbnail":"thumbnail.png",
-	"screenshot":"salsero-screenshot.jpg",
+	"thumbnail":"images/thumbnail.png",
+	"screenshot":"images/screenshot.jpg",
 	"templateType":"standard",
     "versionTenCompatible": 1,
     "pageTypes":["home"],
@@ -10,6 +10,17 @@
     "es": ["colorido", "claro", "limpio", "vintage", "negocio", "clasico", "patron", "textura", "fondo", "moda", "minorista"],
     "br": ["colorido", "claro", "limpio", "vintage", "negócios", "clássico", "padrão", "textura", "fundo", "moda", "varejo"]
     },
+    "images":[
+        "images/feature-bg.jpg",
+        "images/gallery/1.jpg",
+        "images/gallery/2.jpg",
+        "images/gallery/3.jpg",
+        "images/gallery/4.jpg",
+        "images/gallery/5.jpg",
+        "images/gallery/6.jpg",
+        "images/gallery/7.jpg",
+        "images/gallery/8.jpg"
+    ],
 	"colorSwatches":
     {
         "Swatch 1": {

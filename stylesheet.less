@@ -496,7 +496,7 @@ tr:last-child td {
 }
 
 .bk-pt-home {
-    .columns-two-right {
+    .feature-columns .columns-two-right {
         .blue .widget.content {
             background-color: @color-swatch6;
             border-bottom: 5px solid @color-swatch7;
@@ -1034,15 +1034,15 @@ footer.bk-footer {
     
         &:after {
             @media @tablet {
-                content:"";
-                background: image('/images/nav-icon.png') no-repeat;
-                background-position: center;
-                width: 30px;
-                height: 30px;
-                display: inline-block;
+                content: '';
                 position: absolute;
-                right: 0;
-                box-shadow: none;
+                top: 0;
+                left: 0;
+                width: 40px;
+                height: 2px;
+                margin: 0px auto;
+                background: @color-swatch1;
+                box-shadow: 0 8px 0 @color-swatch1, 0 16px 0 @color-swatch1;
             }
         }
     }
@@ -1617,6 +1617,11 @@ footer.bk-footer {
         }
     }
     
+    a:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
     span.image-title {
         display: block;
         margin:10px 0 0;
@@ -1664,11 +1669,6 @@ footer.bk-footer {
         .style--dark & {
             color: fade(@contrast--dark, 90%);
         }
-    }
-    
-    a:hover {
-        text-decoration: none;
-        cursor: pointer;
     }
 }
 
@@ -1790,23 +1790,77 @@ form.blog-search-form .form-group button,
 // Image Buttons
 
 .widget.tweet a,
+.widget.clicktocall a,
 .widget.dropbox button,
-.widget.paypalbuynow .widget.button.paypal,
-.widget.filedownload .btn,
-.widget.clicktocall a {
-	padding-left: 50px;
-	background-position: 18px center;
-
-	&:hover {
-		padding-left: 50px;
-		background-position: 18px center;
+.widget.filedownload button.btn {
+	&, &:hover, &:focus {
+		background-image: none;
 	}
 }
 
-.widget.clicktocall a {
-	&, &:hover, &:focus {
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpENTg4MDkxNUI0RDcxMUUyOUZDMDhBQzY4M0VGNzM1QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpENTg4MDkxNkI0RDcxMUUyOUZDMDhBQzY4M0VGNzM1QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjYxMkE4MzU2QjRCQjExRTI5RkMwOEFDNjgzRUY3MzVCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQ1ODgwOTE0QjRENzExRTI5RkMwOEFDNjgzRUY3MzVCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+s2QrvwAAAPxJREFUeNpi/P//PwM1ARMDlQE2A7uAGOTsHWSZCPIyFHMC8cz/qMASSZ4ojOzCCUCchmafOyVeVsIiHwXE7OQa+BaLPC8Uk2XgdiD+icR/DMS2QPyG3EhhAeIFSBEyk9QIAadpNAFDJAP/ArE+pQaCcDOSoSepYSAIH0EydCuaHCMQ8wIxEykGigHxPSRDzwOxGlQuDIi/AfExIG4BYn8gFiBkIAjLAfFjJEM/AfFGIH7zHxMcAGJ1QgaCsDAQn/hPGDwCYhdiDIThRgIGNhPjZXSsAsQLockJGUxHVsdIYgELylmJQOwHxPxAfAGIa4D4C0wB46AvsQECDAB0BaRrDCyrSQAAAABJRU5ErkJggg==);
+.widget.tweet a,
+.widget.clicktocall a,
+.widget.dropbox button span,
+.widget.filedownload button.btn {
+	&:before {
+		float: left;
+		padding-right: 0.5em;
+		background-image: none;
+		font-family:'FontAwesome';
+		font-size: 1.5em;
 	}
+}
+
+.widget.tweet a:before {content: '\f099';}
+.widget.clicktocall a:before {content: '\f095';}
+.widget.dropbox button span:before {content: '\f16b';}
+.widget.filedownload button.btn:before {content: '\f019';}
+
+.widget.paypalbuynow .widget.button.paypal {
+	padding-left: 3.2em;
+    background-size: 1.2em;
+    background-position: 1.25em center;
+}
+
+// Social Icons
+
+.widget.socialicons,
+footer.bk-footer .widget.profile .bk-profile-socialicons {
+    margin: 0;
+    padding: 0;
+    
+    span {
+        a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-image: none;
+			margin: 0 5px 10px;
+			padding: 0;
+            width: 42px;
+            height: 42px;
+			min-height: 42px;
+			border-radius: 3px;
+			text-indent: 0;
+			font-size: 0;
+
+			&:before {
+				font-family: 'FontAwesome';
+				text-indent: 0;
+				font-size: 24px;
+			}
+        }
+
+		&.bk-socialicons-linkedin a:before {content: '\f0e1';}
+		&.bk-socialicons-twitter a:before {content: '\f099';}
+		&.bk-socialicons-instagram a:before {content: '\f16d';}
+		&.bk-socialicons-pinterest a:before {content: '\f0d2';}
+		&.bk-socialicons-facebook a:before {content: '\f09a';}
+		&.bk-socialicons-rss a:before {content: '\f09e';}
+		&.bk-socialicons-vkontakte a:before {content: '\f189';}
+		&.bk-socialicons-xing a:before {content: '\f168';}
+		&.bk-socialicons-youtube a:before {content: '\f16a';}
+    }
 }
 
 // LINE
@@ -1943,25 +1997,49 @@ hr.line {
 .widget.twitter {
     padding: 0px;
     list-style: none;
-    background-image: image('/images/twitterlogo.png');
-    background-repeat: no-repeat;
-    background-color:@color-swatch2;
     background-position: 50% 7px;
     background-size: 28px;
     padding-top: 40px;
+    border-bottom: 5px solid @color-swatch2;
+    
+    &:before {
+        content: '\f099';
+        font-size: 1.5em;
+        text-align: center;
+        font-family: 'FontAwesome';
+        width: 100%;
+        display: block;
+        padding-bottom: 1em;
+        border-bottom: 5px solid @color-swatch2;
+
+        .style--light & {
+            border-color: @color--accent;
+            color: @contrast--accent;
+        }
+    
+        .style--accent & {
+            border-color: @color--dark;
+            color: @contrast--dark;
+        }
+    
+        .style--dark & {
+            border-color: @color--accent;
+            color: @contrast--accent;
+        }
+    }
 
     .style--light & {
-        background-color: @color--accent;
+        border-color: @color--accent;
         color: @contrast--accent;
     }
 
     .style--accent & {
-        background-color: @color--dark;
+        border-color: @color--dark;
         color: @contrast--dark;
     }
 
     .style--dark & {
-        background-color: @color--accent;
+        border-color: @color--accent;
         color: @contrast--accent;
     }
 
@@ -2540,137 +2618,6 @@ select {
 	}
 }
 
-// REDIRECT
-
-.widget.redirecttodesktop,
-.desktop a {
-    padding: 8px 0;
-
-    a {
-        padding-right: 30px;
-        padding-top: 2px;
-        background-image: image('/images/desktop.png');
-        background-repeat: no-repeat;
-        background-position: right center;
-        font-size: @font-swatch5-font-size;
-        color: @font-swatch5-color;
-        text-shadow: 0 1px 0 fade(@color-swatch1, 50%);
-        text-decoration: none;
-        cursor: pointer;
-
-        &:active {
-            background-image: image('/images/desktop.png');
-            background-repeat: no-repeat;
-            background-position: right center;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-    }
-}
-
-// SOCIAL BAR AND SOCIAL PROFILE
-
-.widget.socialicons,
-.widget.profile .bk-profile-socialicons {
-    padding: 0px;
-    font-size: 1em;
-    font-family: @font-swatch7-font-family;
-    margin: 0;
-
-    a {
-        text-decoration: none;
-        text-indent: -9999px;
-        white-space: nowrap;
-    }
-    
-    span a {
-        display: inline-block;
-        margin-right: 6px;
-        margin-bottom: 8px;
-        background-size: 18px;
-        width: 32px;
-        height: 32px;
-        -webkit-border-radius: 30px;
-        -moz-border-radius: 30px;
-        border-radius: 30px;
-        background-color: @color-swatch7;
-        background-repeat: no-repeat;
-        background-position: center;
-        overflow: hidden;
-        text-indent: 9999px;
-    
-        .style--light & {
-            background-color: @color--accent;
-            color: @contrast--accent;
-        }
-    
-        .style--accent & {
-            background-color: @color--dark;
-            color: @contrast--dark;
-        }
-    
-        .style--dark & {
-            background-color: @color--accent;
-            color: @contrast--accent;
-        }
-        
-        &:hover {
-            background-color: darken(@color-swatch7,10%);
-        
-            .style--light & {
-                background-color: darken(@color--accent, 10%);
-                color: @contrast--accent;
-            }
-        
-            .style--accent & {
-                background-color: darken(@color--dark, 10%);
-                color: @contrast--dark;
-            }
-        
-            .style--dark & {
-                background-color: darken(@color--accent, 10%);
-                color: @contrast--accent;
-            }
-        }
-    }
-}
-
-.widget.profile {
-    *zoom: 1;
-
-    &:before,
-    &:after {
-        content: " ";
-        display: table;
-    }
-    
-    &:after {
-        clear: both
-    }
-
-    .bk-profile-socialicons {
-        @media @mobile {
-            float:left;
-            margin-bottom:20px;
-        }
-    
-        span {
-            display: inline-block
-        }
-    }
-    
-    .bk-profile-address p {
-        float: left;
-        padding-right: 5px;
-    }
-    
-    span,
-    a,
-    p {
-        float: none;
-    }
-}
-
 // SLIDESHOW
 
 .widget.responsiveslideshow {
@@ -2721,7 +2668,7 @@ select {
         .btn-prev,
         .btn-next {
             &:after {
-                color: #color__button--text;
+                color: @font-swatch7-color;
                 top: 5px;
                 line-height: 30px;
             }
@@ -2746,7 +2693,7 @@ select {
             border-radius: 4px;
 
             &:after {
-                color: @color__button--text;
+                color: @font-swatch7-color;
                 letter-spacing: -4px;
                 top: -2px;
                 font-size:20px;
