@@ -1,0 +1,22 @@
+//  Migration Styles
+
+//  These changes allow rows to work with
+//  existing templates in BK10
+
+// Template styling resets
+
+#migrated {
+
+    .widget.image img[src*="icon"] {
+        border-bottom: none;
+    }
+
+    // Pricing Table
+    .row--layout-pricing-1a .column ul li {
+        padding-left: 2.5em;
+    
+        &:before {
+            content: none;
+        }
+    }
+}

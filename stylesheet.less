@@ -252,6 +252,10 @@ blockquote {
 			color: @color--accent;
 		}
     }
+
+	&:after {
+		display: none;
+	}
 }
 
 // Unordered and Ordered List
@@ -1234,8 +1238,10 @@ footer.bk-footer {
 
                     @media @tablet {
                         display: none;
+                        position: static;
                         max-width: none;
                         margin-top: 0;
+                        margin-bottom: 10px;
                         width: 100%;
                         padding: 0;
                     }
@@ -1666,6 +1672,7 @@ button.button,
 .advancedcontactform button.btn,
 .widget.tweet a,
 .widget.clicktocall a,
+.widget.clicktocall a:hover,
 .widget.dropbox button,
 .widget.filedownload button.btn,
 .widget.paypalbuynow .widget.button.paypal,
@@ -1682,7 +1689,7 @@ form.blog-search-form .form-group button,
     -moz-border-radius: 3px;
     border-radius: 3px;
     min-width: 100px;
-    height: auto !important;
+    height: auto;
     font-family: @font-swatch7-font-family;
     font-size: @font-swatch7-font-size;
     font-weight:@font-swatch7-font-weight;
@@ -1707,25 +1714,13 @@ form.blog-search-form .form-group button,
         width: 100%;
     }
 
-    .style--light & {
+    .style--light &,
+    .style--accent &,
+    .style--dark & {
         background-image: linear-gradient(to bottom, lighten(@color-swatch6, 10%), @color-swatch6);
         border-color: @color-swatch6;
         color: @font-swatch7-color;
         text-shadow: 0 1px 1px darken(@color-swatch6, 10%);
-    }
-
-    .style--accent & {
-        background: linear-gradient(to bottom, lighten(@color--dark, 10%), @color--dark);
-        border-color: @color--dark;
-        color: @contrast--dark;
-        text-shadow: 0 1px 1px darken(@color--dark, 10%);
-    }
-
-    .style--dark & {
-        background: linear-gradient(to bottom, lighten(@color--accent, 10%), @color--accent);
-        border-color: @color--accent;
-        color: @contrast--accent;
-        text-shadow: 0 1px 1px darken(@color--accent, 10%);
     }
 
     &:hover {
@@ -1737,16 +1732,10 @@ form.blog-search-form .form-group button,
         cursor: pointer;
         text-decoration: none;
     
-        .style--light & {
-            background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
-        }
-    
-        .style--accent & {
-            background: linear-gradient(to bottom, lighten(@color--dark, 3%), darken(@color--dark, 3%));
-        }
-    
+        .style--light &,
+        .style--accent &,
         .style--dark & {
-            background: linear-gradient(to bottom, lighten(@color--accent, 3%), darken(@color--accent, 3%));
+            background-image: linear-gradient(to bottom, lighten(@color-swatch6, 3%), darken(@color-swatch6, 3%));
         }
     }
     
@@ -1808,9 +1797,7 @@ form.blog-search-form .form-group button,
     
     span {
         a {
-			display: flex;
-			justify-content: center;
-			align-items: center;
+			display: inline-block;
 			background-image: none;
 			margin: 0 5px 10px;
 			padding: 0;
@@ -1818,6 +1805,7 @@ form.blog-search-form .form-group button,
             min-width: 42px;
             height: 42px;
 			min-height: 42px;
+			line-height: 42px;
 			border-radius: 3px;
 			text-indent: 0;
 			font-size: 0;
@@ -2272,7 +2260,8 @@ select,
 .widget input[type="email"],
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-    height: 40px;
+    min-height: 40px;
+	height: auto !important;
     background-color: @color-swatch1;
     font-family: @font-swatch5-font-family;
     font-size: @font-swatch5-font-size;
@@ -2334,8 +2323,10 @@ input:-webkit-autofill:focus {
     }
 }
 
-textarea {
-    height: 100px;
+textarea,
+.contactform textarea,
+.advancedcontactform textarea {
+    min-height: 100px;
 }
 
 // Dropdown
