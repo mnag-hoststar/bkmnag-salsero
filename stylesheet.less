@@ -275,7 +275,7 @@ blockquote {
 	
 			&:before {
 				position: absolute;
-				content: '\2013';
+				content: '\2022';
 				left: -2em;
 			}
 		}
@@ -306,6 +306,22 @@ blockquote {
 				content: counter(ordered-counter) ".";
 				counter-increment: ordered-counter;
 				text-align: left;
+			}
+		}
+	}
+}
+
+.content .widget-overlay {
+	ul.list--options {
+		margin: 0;
+		padding: 0;
+	
+		li.item--option {
+			margin: 0;
+			padding: 0;
+	
+			&:before {
+				content: none;
 			}
 		}
 	}
@@ -1762,12 +1778,21 @@ form.blog-search-form .form-group button,
 
 .widget.tweet a,
 .widget.clicktocall a,
+.widget.dropbox button,
+.widget.filedownload button.btn {
+	&, &:hover, &:focus {
+		background-image: none;
+	}
+}
+
+.widget.tweet a,
+.widget.clicktocall a,
 .widget.dropbox button span,
 .widget.filedownload button.btn {
 	&:before {
         position: relative;
         top: 0.1em;
-		padding-right: 0.5em;
+		padding-right: 0.25em;
 		background-image: none;
 		font-family:'FontAwesome';
 		font-size: 1.25em;
