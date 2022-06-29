@@ -889,11 +889,17 @@ header.bk-header {
     .companyheader {
         display: flex;
         align-items: center;
+        max-width: 50%;
 
         @media @tablet {
             z-index: 2000;
             margin-right: 90px;
             width: 100%;
+            max-width: 100%;
+        }
+
+        @media @mobile {
+            margin-right: 70px;
         }
         
         .widget.logo,
@@ -910,6 +916,10 @@ header.bk-header {
 
             .logo {
                 display: flex;
+
+                img {
+                    min-width: 40px;
+                }
             }
         }
     
@@ -924,7 +934,7 @@ header.bk-header {
             
             a {
                 text-decoration: none;
-                word-break: normal;
+                word-break: break-word;
         
                 @media @mobile {
                     font-size: bkscale(@font-swatch10-font-size, 0.9);
